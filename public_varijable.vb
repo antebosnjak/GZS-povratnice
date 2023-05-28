@@ -76,4 +76,9 @@
     Public putanja_servera As String
     Public putanja_prijenosa As String
 
+
+
+
+    Public broj_povratnice As String
+
 End Module

@@ -751,5 +751,9 @@ Public Class Form4
 
     End Sub
 
+    Private Sub ostecena_stranicatextbox_TextChanged(sender As Object, e As EventArgs) Handles ostecena_stranicatextbox.TextChanged
+
+    End Sub
+
 End Class
 

@@ -329,9 +329,9 @@ Partial Class Form1
         Me.vrsta_akta_checkbox.AutoSize = True
         Me.vrsta_akta_checkbox.Location = New System.Drawing.Point(4, 76)
         Me.vrsta_akta_checkbox.Name = "vrsta_akta_checkbox"
-        Me.vrsta_akta_checkbox.Size = New System.Drawing.Size(79, 17)
+        Me.vrsta_akta_checkbox.Size = New System.Drawing.Size(93, 17)
         Me.vrsta_akta_checkbox.TabIndex = 31
-        Me.vrsta_akta_checkbox.Text = "Izabran akt"
+        Me.vrsta_akta_checkbox.Text = "Izabrana vrsta"
         Me.vrsta_akta_checkbox.UseVisualStyleBackColor = True
         '
         'kreiran_pdf_check
@@ -405,7 +405,8 @@ Partial Class Form1
         Me.vrsta_akta_buton.Name = "vrsta_akta_buton"
         Me.vrsta_akta_buton.Size = New System.Drawing.Size(110, 40)
         Me.vrsta_akta_buton.TabIndex = 37
-        Me.vrsta_akta_buton.Text = "Vrsta akta"
+        Me.vrsta_akta_buton.Text = "Vrsta povratnice"
+        Me.vrsta_akta_buton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.vrsta_akta_buton.UseVisualStyleBackColor = True
         '
         'CircularProgressBar1

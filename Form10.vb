@@ -14,9 +14,6 @@ Public Class Form10
     End Sub
 
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles putanja_servera_textbox.TextChanged
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
@@ -119,4 +116,6 @@ Public Class Form10
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
     End Sub
+
+
 End Class

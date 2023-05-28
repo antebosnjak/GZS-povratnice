@@ -201,9 +201,9 @@ Public Class Form1
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles start_radnog_dana_buton.Click
 
 
-        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Or zupanija_skeniranja = "" Or lokacija_izmjere = "" Or nadlezni_odjel = "" Then
+        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Or zupanija_skeniranja = "" Or lokacija_izmjere = "" Then
 
-            MsgBox("Unesi postavke...", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Unesi postavke...", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
         End If
 
@@ -244,11 +244,11 @@ Public Class Form1
         ime_grupe_folder = trenutni_radni_dan + naziv_grupe
 
         putanja_grupe = putanja_povratnice + "\" + ime_grupe_folder
-        putanja_grupe2 = "C:\SKENIRANJE_HR" + "\" + ime_grupe_folder
+
         putanja_prijenosa = putanja_povratnice
 
         My.Settings.putanja_grupe = putanja_grupe
-        My.Settings.putanja_grupe2 = putanja_grupe2
+
         My.Settings.ime_grupe_folder = ime_grupe_folder
 
 
@@ -265,12 +265,6 @@ Public Class Form1
 
 
 
-        'Putanja grupe2
-        If Not System.IO.Directory.Exists(putanja_grupe2) Then
-            System.IO.Directory.CreateDirectory(putanja_grupe2)
-        End If
-
-
         'Putanja postavki
         If Not System.IO.Directory.Exists(putanja_postavki) Then
             System.IO.Directory.CreateDirectory(putanja_postavki)
@@ -284,16 +278,10 @@ Public Class Form1
         putanja_tiff = putanja_grupe + "\TIFF"
         putanja_jpgtemp = putanja_grupe + "\JPGTEMP"
 
-
-        putanja_pdf2 = putanja_grupe2 + "\PDF"
-        putanja_txt2 = putanja_grupe2 + "\TXT"
-        putanja_slika2 = putanja_grupe2 + "\SLIKANO"
-        putanja_tiff2 = putanja_grupe2 + "\TIFF"
-        ' putanja_db = putanja_grupe2 + "\DB"
         putanja_db = putanja_grupe + "\DB"
 
         putanja_pdf_a = putanja_grupe + "\PDF_A"
-        putanja_pdf2_a = putanja_grupe2 + "\PDF_A"
+
         putanja_not_pdf_a = putanja_grupe + "\N_PDF_A"
 
 
@@ -301,7 +289,7 @@ Public Class Form1
         My.Settings.putanja_pdf_a = putanja_pdf_a
         My.Settings.putanja_not_pdf_a = putanja_not_pdf_a
 
-        My.Settings.putanja_pdf2_a = putanja_pdf2_a
+
 
 
         My.Settings.putanja_txt = putanja_txt
@@ -310,10 +298,6 @@ Public Class Form1
         My.Settings.putanja_jpgtemp = putanja_jpgtemp
 
 
-        My.Settings.putanja_pdf2 = putanja_pdf2
-        My.Settings.putanja_txt2 = putanja_txt2
-        My.Settings.putanja_slika2 = putanja_slika2
-        My.Settings.putanja_tiff2 = putanja_tiff2
         My.Settings.putanja_db = putanja_db
 
         My.Settings.putanja_postavki = putanja_postavki
@@ -325,9 +309,6 @@ Public Class Form1
             System.IO.Directory.CreateDirectory(putanja_pdf)
         End If
 
-        If Not System.IO.Directory.Exists(putanja_pdf2) Then
-            System.IO.Directory.CreateDirectory(putanja_pdf2)
-        End If
 
 
         If Not System.IO.Directory.Exists(putanja_pdf_a) Then
@@ -341,9 +322,6 @@ Public Class Form1
         End If
 
 
-        If Not System.IO.Directory.Exists(putanja_pdf2_a) Then
-            System.IO.Directory.CreateDirectory(putanja_pdf2_a)
-        End If
 
 
 
@@ -352,19 +330,10 @@ Public Class Form1
             System.IO.Directory.CreateDirectory(putanja_txt)
         End If
 
-        If Not System.IO.Directory.Exists(putanja_txt2) Then
-            System.IO.Directory.CreateDirectory(putanja_txt2)
-        End If
-
-
 
         'Putanja SLIKANO
         If Not System.IO.Directory.Exists(putanja_slika) Then
             System.IO.Directory.CreateDirectory(putanja_slika)
-        End If
-
-        If Not System.IO.Directory.Exists(putanja_slika2) Then
-            System.IO.Directory.CreateDirectory(putanja_slika2)
         End If
 
 
@@ -576,12 +545,12 @@ Public Class Form1
 
         pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
 
-        pdf_nepotpisani2 = putanja_pdf2 + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
+
 
 
 
         pdf_potpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
-        pdf_potpisani2 = putanja_pdf2 + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
+
 
 
 
@@ -667,16 +636,16 @@ Public Class Form1
                         If Not File.Exists(strNewFileName) Then
 
                             System.IO.File.Move(pdf_potpisani, strNewFileName)
-                            System.IO.File.Move(pdf_nepotpisani2, strNewFileName2)
+
 
                             pdf_potpisani = strNewFileName
-                            pdf_nepotpisani2 = strNewFileName2
+
 
                             System.IO.File.Copy(pdf_potpisani, pdfa1)
-                            System.IO.File.Copy(pdf_potpisani, pdfa2)
+
 
                             System.IO.File.Delete(pdf_potpisani)
-                            System.IO.File.Copy(pdf_nepotpisani2, pdfa3)
+
 
                         Else
                             MsgBox("PDF datoteka već postoji!" & vbCrLf & "Resetiraj tekući sken!", MsgBoxStyle.Exclamation, "GZS sken")
@@ -727,7 +696,7 @@ Public Class Form1
 
 
                             System.IO.File.Move(pdf_potpisani, strNewFileName)
-                            System.IO.File.Move(pdf_nepotpisani2, strNewFileName2)
+
 
                             pdf_potpisani = strNewFileName
                             pdf_nepotpisani2 = strNewFileName2
@@ -740,7 +709,7 @@ Public Class Form1
 
 
                             System.IO.File.Delete(pdf_potpisani)
-                            System.IO.File.Copy(pdf_nepotpisani2, pdfa3)
+
 
                         Else
                             MsgBox("PDF datoteka već postoji!" & vbCrLf & "Resetiraj tekući sken!", MsgBoxStyle.Exclamation, "GZS sken")
@@ -1061,7 +1030,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles skeniraj_buton.Click
 
 
-        MsgBox("Pokreni CZUR skener i skeniraj tekući akt...", MsgBoxStyle.Information, "GZS sken")
+        MsgBox("Pokreni CZUR skener i skeniraj tekuću povratnicu...", MsgBoxStyle.Information, "GZS povratnice")
         skeniraj_buton.Enabled = False
         sken_check.Enabled = True
         'sken_check.Checked = False
@@ -1185,51 +1154,23 @@ Public Class Form1
 
         If broj_datoteka = 0 Then
 
-            MsgBox("Nijedna skenirana *.jpg datoteke ne postoji u folderu ...SKENIRANJE_HR\", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Nijedna skenirana *.jpg datoteke ne postoji u folderu ...POVRATNICE\", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
         ElseIf broj_datoteka > 0 And broj_datoteka < 11 Then
             jedanaest = False
         ElseIf broj_datoteka > 10 Then
 
             jedanaest = True
-            MsgBox("Broj skeniranih stranica veći je od 10 !!" & vbCrLf & "Neće biti kreiran PDF/A !", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Broj skeniranih stranica veći je od 10 !!" & vbCrLf & "Neće biti kreiran PDF/A !", MsgBoxStyle.Exclamation, "GZS povratnice")
         End If
 
 
 
 
-        Dim proc As Process = Nothing
-        Try
-            Dim batDir As String = putanja_povratnice + "\"
-            Dim batfile As String
-
-            batfile = batDir + "gzs_sken.bat"
-
-            proc = New Process()
-            proc.StartInfo.WorkingDirectory = batDir
-            proc.StartInfo.FileName = "gzs_sken.bat"
+        konverzija()
 
 
-            If Not System.IO.File.Exists(batfile) Then
 
-
-                MsgBox("Datoteka gzs_sken.bat nije instalirana!", MsgBoxStyle.Exclamation, "GZS sken")
-                Exit Sub
-
-            End If
-
-            proc.StartInfo.CreateNoWindow = False
-            proc.Start()
-            proc.WaitForExit()
-
-            AutoClosingMessageBox.Factory(showMethod:=Function(caption, buttons)
-                                                          Return MessageBox.Show(Me, "Kreiran PDF....", caption, buttons, MessageBoxIcon.Information)
-                                                      End Function, caption:="GZS sken").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
-
-
-        Catch ex As Exception
-            Console.WriteLine(ex.StackTrace.ToString())
-        End Try
 
 
 
@@ -1802,7 +1743,7 @@ Public Class Form1
     Sub konverzija()
 
         Dim pdf_nepotpisani As String
-        Dim pdf_nepotpisani2 As String
+
 
 
         Dim trenutni_radni_dan As String
@@ -1834,7 +1775,7 @@ Public Class Form1
         For Each file In files
             ukupni_broj_jpg = ukupni_broj_jpg + 1
         Next
-        Dim postotak As Integer
+
 
 
 
@@ -1854,15 +1795,6 @@ Public Class Form1
             'End Using
 
 
-            postotak = (broj_jpg / ukupni_broj_jpg) * 40
-
-
-
-            CircularProgressBar1.Refresh()
-            CircularProgressBar1.Value = 20 + postotak
-            CircularProgressBar1.Refresh()
-            CircularProgressBar1.Text = 20 + postotak
-            CircularProgressBar1.Refresh()
 
 
         Next
@@ -1926,25 +1858,21 @@ Public Class Form1
         Next
 
 
-        CircularProgressBar1.Value = 65
-        CircularProgressBar1.Text = 65
-        CircularProgressBar1.Refresh()
-
 
         pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
 
-        pdf_nepotpisani2 = putanja_pdf2 + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
+
 
 
 
         Dim outputfile1 As String = pdf_nepotpisani
-        Dim outputfile2 As String = pdf_nepotpisani2
+
 
 
 
         Dim doc2 As PdfDocumentBase = PdfDocument.MergeFiles(files2)
         doc2.Save(outputfile1, FileFormat.PDF)
-        doc2.Save(outputfile2, FileFormat.PDF)
+
 
 
 
@@ -1981,19 +1909,16 @@ Public Class Form1
         document.DocumentInformation.Author = ime_prezime_operator
         document.DocumentInformation.Title = vrsta_akta
         document.DocumentInformation.Subject = nadlezni_odjel
-        document.DocumentInformation.Producer = "GZS sken ver. 2.6"
-        document.DocumentInformation.Keywords = "GZS sken"
+        document.DocumentInformation.Producer = "GZS povratnice ver. 1.0"
+        document.DocumentInformation.Keywords = "GZS povratnice"
 
 
         document.SaveToFile(pdf_nepotpisani)
 
 
-        System.IO.File.Delete(outputfile2)
 
 
-        If Not System.IO.File.Exists(outputfile2) Then
-            System.IO.File.Copy(pdf_nepotpisani, pdf_nepotpisani2)
-        End If
+
 
 
 
@@ -2009,14 +1934,11 @@ Public Class Form1
         Next
 
 
-        CircularProgressBar1.Value = 70
-        CircularProgressBar1.Text = 70
-        CircularProgressBar1.Refresh()
 
 
         AutoClosingMessageBox.Factory(showMethod:=Function(caption, buttons)
                                                       Return MessageBox.Show(Me, "Kreiran PDF....", caption, buttons, MessageBoxIcon.Information)
-                                                  End Function, caption:="GZS sken").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
+                                                  End Function, caption:="GZS povratnice").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
 
 
 
@@ -2044,11 +1966,6 @@ Public Class Form1
             End If
 
 
-            If System.IO.File.Exists(putanja_slika2 + "\" + file.Name) Then
-                Dim poruka As String
-                poruka = "U direktoriju SLIKANO2 datoteka " + file.Name + " već  postoji !" & vbCrLf & "Resetiraj tekući sken !"
-                MsgBox(poruka, MsgBoxStyle.Exclamation, "GZS sken")
-            End If
 
 
 
