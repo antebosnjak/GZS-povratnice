@@ -178,7 +178,7 @@ Public Class Form1
 
 
 
-        If zupanija_skeniranja <> "" And nadlezni_odjel <> "" Then
+        If zupanija_skeniranja <> "" And lokacija_izmjere <> "" Then
             zelena_kvacica_5.Visible = True
 
             crveni_kriz_2.Visible = False
