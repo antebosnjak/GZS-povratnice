@@ -1,0 +1,49 @@
+10. sijeènja 2022.
+GZS sken ver. 1.0
+Nulta verzija.
+
+13. veljaèe 2022.
+GZS sken ver. 2.0
+Promijenjena struktura naziva datoteka.
+Dodana moguænost SFTP slanja.
+Dodane predefinirane radne lokacije.
+
+15. veljaèe 2022.
+GZS sken ver. 2.1
+Promijenjena verzija PDF-a u PDF/A -1A standard.
+
+16. veljaèe 2022.
+GZS sken ver. 2.2
+Nadograðen PDF Signer Server.
+Ispravljen bug s verifikacijom PDF/A datoteka.
+
+
+17. veljaèe 2022.
+GZS sken ver. 2.3
+Korigirana struktura slanja i spremanja dnevnih podataka na server.
+Ispravljen bug sa spremanjem broja skena nakon izlaska iz programa.
+Kursor postavljen na datum kod ulaska u formu za popunjavanje metapodataka.
+
+20. veljaèe 2022.
+GZS sken ver. 2.4
+Nadopunjene sve radne lokacije.
+Ispravljen bug s Timeout-om kod slanja na server.
+Ispravljeno nekoliko sitnih bugova.
+
+3. ožujka 2022.
+GZS sken ver. 2.5
+Kreiranje PDF/A do 10 stranica bitno ubrzano i poboljšano korištenjem Spire.PDF.Net funkcija.
+Dodana upozorenja na dokumente s preko 10 skeniranih stranica. 
+Dodan folder N_PDF_A u koji se spremaju potpisani obièni PDF dokumenti.
+Ispravljen bug u funkciji "Završi dan"
+Dodan cirkularni progres bar za vizualno praæenje pojedinog skena u postocima.
+
+12. travnja 2022.
+GZS sken ver. 2.6
+Popis i nazivi lokacija skeniranja u potpunosti usklaðeni s popisom iz šifrarnika baze podataka.
+ROBOCOPY naredba za slanje podataka na server integrirana u aplikaciju preko opcije Slanje podataka.
+Radi lakšeg slanja podataka kreira se na lokalnom raèunalu folder s imenom grupe( ekipe) u koji se spremaju svi dnevni podaci.
+
+28. travnja 2022.
+GZS sken ver. 2.7
+Ispravljene pogreške u nazivima lokacija skeniranja za Karlovaèku, Lièko-senjsku i Zadarsku županiju.
