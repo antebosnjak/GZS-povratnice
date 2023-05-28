@@ -86,7 +86,7 @@ Public Class Form1
 
 
 
-        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Or zupanija_skeniranja = "" Or tip_odjela = "" Or nadlezni_odjel = "" Then
+        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Or zupanija_skeniranja = "" Or lokacija_izmjere = "" Then
 
             start_radnog_dana_buton.Enabled = False
             zelena_kvacica_1.Visible = False
@@ -178,7 +178,7 @@ Public Class Form1
 
 
 
-        If zupanija_skeniranja <> "" And nadlezni_odjel <> "" Then
+        If zupanija_skeniranja <> "" And lokacija_izmjere <> "" Then
             zelena_kvacica_5.Visible = True
 
             crveni_kriz_2.Visible = False

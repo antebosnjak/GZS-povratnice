@@ -525,14 +525,14 @@ Public Class Form4
 
 
 
-        If tip_odjela = "Ured" Then
+        If lokacija_izmjere = "Ured" Then
 
 
             upravni_odjeltextbox.Text = My.Settings.nadlezni_odjel
             zupanijatextbox.Text = My.Settings.zupanija_skeniranja
             ispostavatextbox.Text = ""
 
-        ElseIf tip_odjela = "Ispostava" Then
+        ElseIf lokacija_izmjere = "Ispostava" Then
 
 
             upravni_odjeltextbox.Text = ""

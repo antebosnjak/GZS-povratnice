@@ -48,7 +48,7 @@ Partial Class Form3
         Me.combobox_zupanija.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.combobox_zupanija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.combobox_zupanija.FormattingEnabled = True
-        Me.combobox_zupanija.Items.AddRange(New Object() {"Bjelovarsko-bilogorska županija", "Brodsko-posavska županija", "Dubrovačko-neretvanska županija", "Grad Zagreb", "Istarska županija", "Karlovačka županija", "Koprivničko-križevačka županija", "Krapinsko-zagorska županija", "Ličko-senjska županija", "Međimurska županija", "Osječko-baranjska županija", "Požeško-slavonska županija", "Sisačko-moslavačka Županija", "Splitsko-dalmatinska županija", "Šibensko-kninska županija", "Varaždinska županija", "Virovitičko-podravska županija", "Vukovarsko-srijemska županija", "Zadarska županija", "Zagrebačka županija"})
+        Me.combobox_zupanija.Items.AddRange(New Object() {"Dubrovačko-neretvanska županija", "Sisačko-moslavačka županija", "Splitsko-dalmatinska županija", "Zadarska županija"})
         Me.combobox_zupanija.Location = New System.Drawing.Point(179, 44)
         Me.combobox_zupanija.Name = "combobox_zupanija"
         Me.combobox_zupanija.Size = New System.Drawing.Size(687, 21)
@@ -81,6 +81,7 @@ Partial Class Form3
         Me.Label3.Size = New System.Drawing.Size(111, 13)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Nadležni upravni odjel"
+        Me.Label3.Visible = False
         '
         'combobox_lokacija_izmjere
         '
@@ -88,6 +89,7 @@ Partial Class Form3
         Me.combobox_lokacija_izmjere.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.combobox_lokacija_izmjere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.combobox_lokacija_izmjere.FormattingEnabled = True
+        Me.combobox_lokacija_izmjere.Items.AddRange(New Object() {"Petrinja", "Starigrad", "Staševica", "Zmijavci"})
         Me.combobox_lokacija_izmjere.Location = New System.Drawing.Point(179, 98)
         Me.combobox_lokacija_izmjere.Name = "combobox_lokacija_izmjere"
         Me.combobox_lokacija_izmjere.Size = New System.Drawing.Size(687, 21)
@@ -100,12 +102,14 @@ Partial Class Form3
         Me.combobox_nadlezni_odjel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.combobox_nadlezni_odjel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.combobox_nadlezni_odjel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.combobox_nadlezni_odjel.Enabled = False
         Me.combobox_nadlezni_odjel.FormattingEnabled = True
         Me.combobox_nadlezni_odjel.Location = New System.Drawing.Point(179, 143)
         Me.combobox_nadlezni_odjel.Name = "combobox_nadlezni_odjel"
         Me.combobox_nadlezni_odjel.Size = New System.Drawing.Size(687, 21)
         Me.combobox_nadlezni_odjel.Sorted = True
         Me.combobox_nadlezni_odjel.TabIndex = 6
+        Me.combobox_nadlezni_odjel.Visible = False
         '
         'Form3
         '
@@ -126,7 +130,7 @@ Partial Class Form3
         Me.MinimizeBox = False
         Me.Name = "Form3"
         Me.ShowIcon = False
-        Me.Text = "Postavke lokacije skeniranja"
+        Me.Text = "Postavke lokacije izmjere"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
