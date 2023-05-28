@@ -6,7 +6,7 @@
 
     Public ime_prezime_operator As String
     Public zupanija_skeniranja As String
-    Public tip_odjela As String
+    Public lokacija_izmjere As String
     Public nadlezni_odjel As String
 
 

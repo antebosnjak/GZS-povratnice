@@ -38,7 +38,7 @@ Public Class Form1
         putanja_povratnice = My.Settings.putanja_povratnice
         ime_prezime_operator = My.Settings.ime_prezime_operator
         zupanija_skeniranja = My.Settings.zupanija_skeniranja
-        tip_odjela = My.Settings.tip_odjela
+        lokacija_izmjere = My.Settings.lokacija_izmjere
         nadlezni_odjel = My.Settings.nadlezni_odjel
         novi_radni_dan = My.Settings.novi_radni_dan
 
@@ -201,7 +201,7 @@ Public Class Form1
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles start_radnog_dana_buton.Click
 
 
-        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Or zupanija_skeniranja = "" Or tip_odjela = "" Or nadlezni_odjel = "" Then
+        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Or zupanija_skeniranja = "" Or lokacija_izmjere = "" Or nadlezni_odjel = "" Then
 
             MsgBox("Unesi postavke...", MsgBoxStyle.Exclamation, "GZS sken")
             Exit Sub

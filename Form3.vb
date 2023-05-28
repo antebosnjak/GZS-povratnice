@@ -2,15 +2,15 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         zupanija_skeniranja = combobox_zupanija.Text
-        tip_odjela = combobox_tip_odjela.Text
+        lokacija_izmjere = combobox_lokacija_izmjere.Text
         nadlezni_odjel = combobox_nadlezni_odjel.Text
 
         My.Settings.zupanija_skeniranja = zupanija_skeniranja
-        My.Settings.tip_odjela = tip_odjela
+        My.Settings.lokacija_izmjere = lokacija_izmjere
         My.Settings.nadlezni_odjel = nadlezni_odjel
 
 
-        If zupanija_skeniranja = "" Or tip_odjela = "" Or nadlezni_odjel = "" Then
+        If zupanija_skeniranja = "" Or lokacija_izmjere = "" Or nadlezni_odjel = "" Then
 
             MsgBox("Unesi sve postavke! ", MsgBoxStyle.Exclamation, "GZS sken")
             Exit Sub
@@ -18,7 +18,7 @@
 
 
 
-        If zupanija_skeniranja <> "" And tip_odjela <> "" Or nadlezni_odjel = "" Then
+        If zupanija_skeniranja <> "" And lokacija_izmjere <> "" Or nadlezni_odjel = "" Then
             Form1.zelena_kvacica_5.Visible = True
             Form1.crveni_kriz_2.Visible = False
         Else
@@ -29,7 +29,7 @@
 
 
 
-        If zupanija_skeniranja <> "" And tip_odjela <> "" And nadlezni_odjel <> "" Then
+        If zupanija_skeniranja <> "" And lokacija_izmjere <> "" And nadlezni_odjel <> "" Then
 
             Form1.start_radnog_dana_buton.Enabled = True
             Form1.zelena_kvacica_1.Visible = False
@@ -72,7 +72,7 @@
 
         If start_radnog_dana = True Then
             combobox_zupanija.Enabled = False
-            combobox_tip_odjela.Enabled = False
+            combobox_lokacija_izmjere.Enabled = False
             combobox_nadlezni_odjel.Enabled = False
 
             Button1.Enabled = False
@@ -84,13 +84,13 @@
 
 
         zupanija_skeniranja = My.Settings.zupanija_skeniranja
-        tip_odjela = My.Settings.tip_odjela
+        tip_odjela = My.Settings.lokacija_izmjere
         nadlezni_odjel = My.Settings.nadlezni_odjel
 
 
 
         combobox_zupanija.Text = zupanija_skeniranja
-        combobox_tip_odjela.Text = tip_odjela
+        combobox_lokacija_izmjere.Text = tip_odjela
         combobox_nadlezni_odjel.Text = nadlezni_odjel
 
 
@@ -104,11 +104,11 @@
             combobox_zupanija.Text = zupanija_skeniranja
         End If
 
-        If combobox_tip_odjela.Items.Count > 0 And tip_odjela = "" Then
+        If combobox_lokacija_izmjere.Items.Count > 0 And tip_odjela = "" Then
             combobox_zupanija.SelectedIndex = 0    ' The first item has index 0 '
 
         Else
-            combobox_tip_odjela.Text = tip_odjela
+            combobox_lokacija_izmjere.Text = tip_odjela
         End If
 
 
@@ -126,7 +126,7 @@
 
 
 
-    Private Sub tip_odjela_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combobox_tip_odjela.SelectedIndexChanged
+    Private Sub lokacija_izmjere_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combobox_lokacija_izmjere.SelectedIndexChanged
 
 
 
@@ -139,14 +139,14 @@
 
 
 
-        If combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Bjelovarsko-bilogorska županija" Then
+        If combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Bjelovarsko-bilogorska županija" Then
             combobox_nadlezni_odjel.Items.Add("Grad Bjelovar, Upravni odjel za komunalne djelatnosti i uređenje prostora")
 
 
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Bjelovarsko-bilogorska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Bjelovarsko-bilogorska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Odsjek za prostorno uređenje i gradnju Bjelovar")
             combobox_nadlezni_odjel.Items.Add("Pododsjek Čazma")
@@ -156,13 +156,13 @@
 
 
             combobox_nadlezni_odjel.SelectedIndex = 0
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Brodsko-posavska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Brodsko-posavska županija" Then
             combobox_nadlezni_odjel.Items.Add("Grad Slavonski Brod, Upravni odjel za graditeljstvo, prostorno uređenje i zaštitu okoliša")
 
 
 
             combobox_nadlezni_odjel.SelectedIndex = 0
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Brodsko-posavska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Brodsko-posavska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Sjedište Slavonski Brod")
             combobox_nadlezni_odjel.Items.Add("Ispostava Nova Gradiška")
@@ -170,7 +170,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Dubrovačko-neretvanska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Dubrovačko-neretvanska županija" Then
             combobox_nadlezni_odjel.Items.Add("Grad Dubrovnik, Upravni odjel za izdavanje i provedbu dokumenata prostornog uređenja i gradnje")
             combobox_nadlezni_odjel.Items.Add("Grad Dubrovnik, Upravni odjel za urbanizam, prostorno planiranje i zaštitu okoliša")
 
@@ -179,7 +179,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Dubrovačko-neretvanska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Dubrovačko-neretvanska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Ispostava Konavle")
@@ -190,7 +190,7 @@
             combobox_nadlezni_odjel.Items.Add("Ispostava Vela Luka")
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Istarska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Istarska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Poreč, Upravni odjel za prostorno uređenje i gradnju")
             combobox_nadlezni_odjel.Items.Add("Grad Pula, Upravni odjel za prostorno planiranje i zaštitu okoliša, Odsjek za gradnju")
@@ -209,7 +209,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Istarska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Istarska županija" Then
 
             '*******************
 
@@ -226,7 +226,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Karlovačka županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Karlovačka županija" Then
 
 
 
@@ -238,7 +238,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Karlovačka županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Karlovačka županija" Then
 
 
             combobox_nadlezni_odjel.Items.Add("Odsjek za prostorno uređenje i graditeljstvo")
@@ -247,7 +247,7 @@
 
             'combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Koprivničko-križevačka županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Koprivničko-križevačka županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Koprivnica, Upravni odjel za prostorno uređenje")
 
@@ -257,7 +257,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Koprivničko-križevačka županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Koprivničko-križevačka županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Sjedište Koprivnica")
@@ -267,7 +267,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Krapinsko-zagorska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Krapinsko-zagorska županija" Then
 
 
 
@@ -280,7 +280,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Krapinsko-zagorska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Krapinsko-zagorska županija" Then
 
             '*******************
 
@@ -297,7 +297,7 @@
             combobox_nadlezni_odjel.Items.Add("Ispostava Donja Stubica")
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Ličko-senjska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Ličko-senjska županija" Then
             combobox_nadlezni_odjel.Items.Add("Grad Gospić, Gradski upravni odjel za prostorno uređenje i gradnju")
 
 
@@ -308,7 +308,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Ličko-senjska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Ličko-senjska županija" Then
 
             '*******************
 
@@ -321,7 +321,7 @@
             combobox_nadlezni_odjel.Items.Add("Sjedište Gospić")
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Međimurska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Međimurska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Čakovec, Upravni odjel za prostorno planiranje, urbanizam i zaštitu okoliša, Odsjek za izdavanje akata o gradnji")
 
@@ -331,7 +331,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Međimurska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Međimurska županija" Then
 
             '*******************
 
@@ -339,7 +339,7 @@
             combobox_nadlezni_odjel.Items.Add("Ispostava Prelog")
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Osječko-baranjska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Osječko-baranjska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Đakovo")
             combobox_nadlezni_odjel.Items.Add("Donji Miholjac")
@@ -352,7 +352,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Osječko-baranjska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Osječko-baranjska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Osijek")
@@ -360,9 +360,9 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Požeško-slavonska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Požeško-slavonska županija" Then
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Požeško-slavonska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Požeško-slavonska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Sjedište Požega")
@@ -371,7 +371,7 @@
             combobox_nadlezni_odjel.Items.Add("Ispostava Pakrac")
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Primorsko-goranska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Primorsko-goranska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Rijeka, Odjel za provedbu dokumenata prostornog uređenja i građenje")
 
@@ -380,7 +380,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Primorsko-goranska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Primorsko-goranska županija" Then
 
             '*******************
 
@@ -403,7 +403,7 @@
 
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Sisačko-moslavačka Županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Sisačko-moslavačka Županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Kutina, Upravni odjel za prostorno uređenje i graditeljstvo")
 
@@ -417,7 +417,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Sisačko-moslavačka Županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Sisačko-moslavačka Županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Sjedište Sisak")
@@ -429,7 +429,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Splitsko-dalmatinska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Splitsko-dalmatinska županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Makarska, Upravni odjel za prostorno uređenje i graditeljstvo,  Odsjek za graditeljstvo i zaštitu okoliša")
             combobox_nadlezni_odjel.Items.Add("Grad Kaštela, Upravni odjel za prostorno uređenje i zaštitu okoliša")
@@ -443,7 +443,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Splitsko-dalmatinska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Splitsko-dalmatinska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Ispostava Hvar")
@@ -463,7 +463,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Šibensko-kninska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Šibensko-kninska županija" Then
 
 
 
@@ -478,7 +478,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Šibensko-kninska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Šibensko-kninska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Ispostava Knin")
@@ -489,7 +489,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Varaždinska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Varaždinska županija" Then
 
 
 
@@ -502,7 +502,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Varaždinska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Varaždinska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Ispostava Ludbreg")
@@ -511,7 +511,7 @@
             combobox_nadlezni_odjel.Items.Add("Ispostava Novi Marof")
             '***************
             combobox_nadlezni_odjel.SelectedIndex = 0
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Virovitičko-podravska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Virovitičko-podravska županija" Then
 
 
 
@@ -522,7 +522,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Virovitičko-podravska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Virovitičko-podravska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Sjedište Virovitica")
@@ -531,7 +531,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Vukovarsko-srijemska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Vukovarsko-srijemska županija" Then
 
 
             combobox_nadlezni_odjel.Items.Add("Ilok")
@@ -543,7 +543,7 @@
 
 
             combobox_nadlezni_odjel.SelectedIndex = 0
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Vukovarsko-srijemska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Vukovarsko-srijemska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Vinkovci")
@@ -554,7 +554,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Zadarska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Zadarska županija" Then
 
 
 
@@ -568,7 +568,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Zadarska županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Zadarska županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Zadar")
@@ -585,7 +585,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Zagrebačka županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Zagrebačka županija" Then
 
             combobox_nadlezni_odjel.Items.Add("Grad Samobor, Upravni odjel za provođenje dokumenata prostornog uređenja i gradnju")
 
@@ -597,7 +597,7 @@
 
 
             combobox_nadlezni_odjel.SelectedIndex = 0
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Zagrebačka županija" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Zagrebačka županija" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Ispostava Dugo Selo")
@@ -613,7 +613,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Grad Zagreb" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Grad Zagreb" Then
 
             combobox_nadlezni_odjel.Items.Add("Četvrti područni odsjek za graditeljstvo (za PU Susedgrad)")
 
@@ -627,7 +627,7 @@
 
             combobox_nadlezni_odjel.SelectedIndex = 0
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Grad Zagreb" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Grad Zagreb" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Sjedište Zagreb")
@@ -638,7 +638,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
             '***************
-        ElseIf combobox_tip_odjela.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Ministarstvo prostornog uređenja, graditeljstva i državne imovine" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ured" And combobox_zupanija.SelectedItem = "Ministarstvo prostornog uređenja, graditeljstva i državne imovine" Then
 
 
             combobox_nadlezni_odjel.Items.Add("Ministarstvo prostornoga uređenja, graditeljstva i državne imovine, Sektor građevinskih i uporabnih dozvola")
@@ -651,7 +651,7 @@
             combobox_nadlezni_odjel.SelectedIndex = 0
 
 
-        ElseIf combobox_tip_odjela.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Ministarstvo prostornog uređenja, graditeljstva i državne imovine" Then
+        ElseIf combobox_lokacija_izmjere.SelectedItem = "Ispostava" And combobox_zupanija.SelectedItem = "Ministarstvo prostornog uređenja, graditeljstva i državne imovine" Then
 
             '*******************
             combobox_nadlezni_odjel.Items.Add("Središnji odsjek za graditeljstvo")
@@ -667,7 +667,7 @@
 
     End Sub
 
-    Private Sub combobox_tip_odjela_MouseClick(sender As Object, e As MouseEventArgs) Handles combobox_tip_odjela.MouseClick
+    Private Sub combobox_tip_odjela_MouseClick(sender As Object, e As MouseEventArgs) Handles combobox_lokacija_izmjere.MouseClick
 
 
 
@@ -689,11 +689,11 @@
 
         combobox_nadlezni_odjel.Items.Clear()
         combobox_nadlezni_odjel.Text = ""
-        combobox_tip_odjela.Items.Clear()
-        combobox_tip_odjela.Text = ""
+        combobox_lokacija_izmjere.Items.Clear()
+        combobox_lokacija_izmjere.Text = ""
 
-        combobox_tip_odjela.Items.Add("Ispostava")
-        combobox_tip_odjela.Items.Add("Ured")
+        combobox_lokacija_izmjere.Items.Add("Ispostava")
+        combobox_lokacija_izmjere.Items.Add("Ured")
 
 
 

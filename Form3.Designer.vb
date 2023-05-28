@@ -28,7 +28,7 @@ Partial Class Form3
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.combobox_tip_odjela = New System.Windows.Forms.ComboBox()
+        Me.combobox_lokacija_izmjere = New System.Windows.Forms.ComboBox()
         Me.combobox_nadlezni_odjel = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
@@ -69,9 +69,9 @@ Partial Class Form3
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(12, 98)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(153, 13)
+        Me.Label2.Size = New System.Drawing.Size(82, 13)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Tip nadležnog upravnog odjela"
+        Me.Label2.Text = "Lokacija izmjere"
         '
         'Label3
         '
@@ -82,17 +82,17 @@ Partial Class Form3
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Nadležni upravni odjel"
         '
-        'combobox_tip_odjela
+        'combobox_lokacija_izmjere
         '
-        Me.combobox_tip_odjela.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.combobox_tip_odjela.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.combobox_tip_odjela.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.combobox_tip_odjela.FormattingEnabled = True
-        Me.combobox_tip_odjela.Location = New System.Drawing.Point(179, 98)
-        Me.combobox_tip_odjela.Name = "combobox_tip_odjela"
-        Me.combobox_tip_odjela.Size = New System.Drawing.Size(687, 21)
-        Me.combobox_tip_odjela.Sorted = True
-        Me.combobox_tip_odjela.TabIndex = 5
+        Me.combobox_lokacija_izmjere.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.combobox_lokacija_izmjere.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.combobox_lokacija_izmjere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.combobox_lokacija_izmjere.FormattingEnabled = True
+        Me.combobox_lokacija_izmjere.Location = New System.Drawing.Point(179, 98)
+        Me.combobox_lokacija_izmjere.Name = "combobox_lokacija_izmjere"
+        Me.combobox_lokacija_izmjere.Size = New System.Drawing.Size(687, 21)
+        Me.combobox_lokacija_izmjere.Sorted = True
+        Me.combobox_lokacija_izmjere.TabIndex = 5
         '
         'combobox_nadlezni_odjel
         '
@@ -114,7 +114,7 @@ Partial Class Form3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(878, 257)
         Me.Controls.Add(Me.combobox_nadlezni_odjel)
-        Me.Controls.Add(Me.combobox_tip_odjela)
+        Me.Controls.Add(Me.combobox_lokacija_izmjere)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button1)
@@ -137,6 +137,6 @@ Partial Class Form3
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents combobox_tip_odjela As ComboBox
+    Friend WithEvents combobox_lokacija_izmjere As ComboBox
     Friend WithEvents combobox_nadlezni_odjel As ComboBox
 End Class
