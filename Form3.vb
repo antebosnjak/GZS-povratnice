@@ -34,10 +34,10 @@
 
             Form1.skeniraj_buton.Enabled = False
             Form1.sken_check.Enabled = False
-            Form1.potpis_check.Enabled = False
+
             Form1.metapodaci_check.Enabled = False
 
-            Form1.digitalni_potpis_buton.Enabled = False
+
             Form1.metapodaci_buton.Enabled = False
             Form1.novi_sken_buton.Enabled = False
             Form1.zavrsi_dan_buton.Enabled = False
@@ -49,10 +49,9 @@
 
             Form1.skeniraj_buton.Enabled = False
             Form1.sken_check.Enabled = False
-            Form1.potpis_check.Enabled = False
+
             Form1.metapodaci_check.Enabled = False
 
-            Form1.digitalni_potpis_buton.Enabled = False
             Form1.metapodaci_buton.Enabled = False
             Form1.novi_sken_buton.Enabled = False
             Form1.zavrsi_dan_buton.Enabled = False

@@ -25,7 +25,6 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.skeniraj_buton = New System.Windows.Forms.Button()
         Me.metapodaci_buton = New System.Windows.Forms.Button()
-        Me.digitalni_potpis_buton = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.zavrsi_dan_buton = New System.Windows.Forms.Button()
@@ -37,10 +36,8 @@ Partial Class Form1
         Me.crveni_kriz_3 = New System.Windows.Forms.PictureBox()
         Me.novi_sken_buton = New System.Windows.Forms.Button()
         Me.zelena_kvacica_s = New System.Windows.Forms.PictureBox()
-        Me.zelena_kvacica_d = New System.Windows.Forms.PictureBox()
         Me.zelena_kvacica_m = New System.Windows.Forms.PictureBox()
         Me.sken_check = New System.Windows.Forms.CheckBox()
-        Me.potpis_check = New System.Windows.Forms.CheckBox()
         Me.metapodaci_check = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.broj_skena_textbox = New System.Windows.Forms.TextBox()
@@ -62,7 +59,6 @@ Partial Class Form1
         CType(Me.crveni_kriz_2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.crveni_kriz_3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.zelena_kvacica_s, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.zelena_kvacica_d, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.zelena_kvacica_m, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.zelena_kvacica_v, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,20 +87,6 @@ Partial Class Form1
         Me.metapodaci_buton.Text = "Unesi metapod."
         Me.metapodaci_buton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.metapodaci_buton.UseVisualStyleBackColor = True
-        '
-        'digitalni_potpis_buton
-        '
-        Me.digitalni_potpis_buton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.digitalni_potpis_buton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.digitalni_potpis_buton.Image = CType(resources.GetObject("digitalni_potpis_buton.Image"), System.Drawing.Image)
-        Me.digitalni_potpis_buton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.digitalni_potpis_buton.Location = New System.Drawing.Point(12, 363)
-        Me.digitalni_potpis_buton.Name = "digitalni_potpis_buton"
-        Me.digitalni_potpis_buton.Size = New System.Drawing.Size(110, 40)
-        Me.digitalni_potpis_buton.TabIndex = 2
-        Me.digitalni_potpis_buton.Text = "Digitalno potpiši"
-        Me.digitalni_potpis_buton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.digitalni_potpis_buton.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -219,17 +201,6 @@ Partial Class Form1
         Me.zelena_kvacica_s.TabStop = False
         Me.zelena_kvacica_s.Visible = False
         '
-        'zelena_kvacica_d
-        '
-        Me.zelena_kvacica_d.Image = CType(resources.GetObject("zelena_kvacica_d.Image"), System.Drawing.Image)
-        Me.zelena_kvacica_d.Location = New System.Drawing.Point(106, 173)
-        Me.zelena_kvacica_d.Name = "zelena_kvacica_d"
-        Me.zelena_kvacica_d.Size = New System.Drawing.Size(40, 40)
-        Me.zelena_kvacica_d.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.zelena_kvacica_d.TabIndex = 19
-        Me.zelena_kvacica_d.TabStop = False
-        Me.zelena_kvacica_d.Visible = False
-        '
         'zelena_kvacica_m
         '
         Me.zelena_kvacica_m.Image = CType(resources.GetObject("zelena_kvacica_m.Image"), System.Drawing.Image)
@@ -250,16 +221,6 @@ Partial Class Form1
         Me.sken_check.TabIndex = 26
         Me.sken_check.Text = "Skenirano"
         Me.sken_check.UseVisualStyleBackColor = True
-        '
-        'potpis_check
-        '
-        Me.potpis_check.AutoSize = True
-        Me.potpis_check.Location = New System.Drawing.Point(4, 186)
-        Me.potpis_check.Name = "potpis_check"
-        Me.potpis_check.Size = New System.Drawing.Size(73, 17)
-        Me.potpis_check.TabIndex = 27
-        Me.potpis_check.Text = "Potpisano"
-        Me.potpis_check.UseVisualStyleBackColor = True
         '
         'metapodaci_check
         '
@@ -303,8 +264,6 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.metapodaci_check)
         Me.GroupBox1.Controls.Add(Me.zelena_kvacica_m)
         Me.GroupBox1.Controls.Add(Me.sken_check)
-        Me.GroupBox1.Controls.Add(Me.zelena_kvacica_d)
-        Me.GroupBox1.Controls.Add(Me.potpis_check)
         Me.GroupBox1.Controls.Add(Me.zelena_kvacica_s)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.GroupBox1.Location = New System.Drawing.Point(143, 190)
@@ -466,7 +425,6 @@ Partial Class Form1
         Me.Controls.Add(Me.zavrsi_dan_buton)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.digitalni_potpis_buton)
         Me.Controls.Add(Me.metapodaci_buton)
         Me.Controls.Add(Me.skeniraj_buton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -481,7 +439,6 @@ Partial Class Form1
         CType(Me.crveni_kriz_2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.crveni_kriz_3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.zelena_kvacica_s, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.zelena_kvacica_d, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.zelena_kvacica_m, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -494,7 +451,6 @@ Partial Class Form1
 
     Friend WithEvents skeniraj_buton As Button
     Friend WithEvents metapodaci_buton As Button
-    Friend WithEvents digitalni_potpis_buton As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents zavrsi_dan_buton As Button
@@ -506,10 +462,8 @@ Partial Class Form1
     Friend WithEvents crveni_kriz_3 As PictureBox
     Friend WithEvents novi_sken_buton As Button
     Friend WithEvents zelena_kvacica_s As PictureBox
-    Friend WithEvents zelena_kvacica_d As PictureBox
     Friend WithEvents zelena_kvacica_m As PictureBox
     Friend WithEvents sken_check As CheckBox
-    Friend WithEvents potpis_check As CheckBox
     Friend WithEvents metapodaci_check As CheckBox
     Friend WithEvents Label1 As Label
     Friend WithEvents broj_skena_textbox As TextBox

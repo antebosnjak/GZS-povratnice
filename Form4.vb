@@ -205,13 +205,13 @@ Public Class Form4
 100:    Dim broj_datoteka As Integer
         Dim putanja_txt_save As String
 
-        Dim putanja_txt_save2 As String
+
 
 
         'Imena JSON datoteka
 
         putanja_txt_save = putanja_txt + "\" + DateTime.Now.ToString("yyyy-MM-dd") + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".txt"
-        putanja_txt_save2 = putanja_txt2 + "\" + DateTime.Now.ToString("yyyy-MM-dd") + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".txt"
+
 
 
         datoteka = ""
@@ -363,30 +363,6 @@ Public Class Form4
 
         putanja_txt_save = ""
 
-
-        Using writer As StreamWriter = New StreamWriter(putanja_txt_save2)
-
-            writer.WriteLine("{")
-            writer.WriteLine(linija_1)
-            'writer.WriteLine(linija_2)
-            writer.WriteLine(linija_3)
-            writer.WriteLine(linija_4)
-            writer.WriteLine(linija_5)
-            writer.WriteLine(linija_6)
-            writer.WriteLine(linija_7)
-            writer.WriteLine(linija_8)
-            writer.WriteLine(linija_9)
-            writer.WriteLine(linija_10)
-            writer.WriteLine(linija_11)
-            writer.WriteLine("},")
-
-            writer.Close()
-
-
-        End Using
-
-
-        putanja_txt_save2 = ""
 
 
 

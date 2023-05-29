@@ -475,7 +475,7 @@ Public Class Form5
                     'Do any thing
                     Dim startpdf As String
                     Dim row1 As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-                    startpdf = putanja_pdf_a + "\" + row1
+                    startpdf = putanja_pdf + "\" + row1
 
 
                     If System.IO.File.Exists(startpdf) Then

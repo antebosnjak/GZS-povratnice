@@ -21,25 +21,13 @@
     Public putanja_jpgtemp As String
 
 
-    Public putanja_pdf_a As String
-    Public putanja_pdf2_a As String
-    Public putanja_not_pdf_a As String
 
-
-
-    Public putanja_slika2 As String
-    Public putanja_txt2 As String
-    Public putanja_pdf2 As String
-    Public putanja_tiff2 As String
     Public putanja_db As String
 
     Public putanja_grupe As String
-    Public putanja_grupe2 As String
+
     Public ime_grupe_folder As String
 
-
-    Public putanja_postavki As String
-    Public putanja_broj_skena As String
 
 
 
@@ -56,8 +44,6 @@
     Public pdf_potpisani As String
     Public tiff_spojeni As String
 
-    Public pdf_potpisani2 As String
-    Public tiff_spojeni2 As String
 
 
     Public imesqlitedatoteke As String
