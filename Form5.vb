@@ -453,21 +453,25 @@ Public Class Form5
 
                 If e.ColumnIndex = 2 Then
                     'Do any thing
-                    Dim startpdf As String
+
                     Dim row1 As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-                    startpdf = putanja_pdf + "\" + row1
 
 
-                    MsgBox(row1)
-                    MsgBox(putanja_pdf)
 
-                    If System.IO.File.Exists(startpdf) Then
 
-                        Process.Start(startpdf)
-                    Else
+                    If System.IO.File.Exists(putanja_pdf + "\" + row1) Then
 
                         Process.Start(putanja_pdf + "\" + row1)
+                    ElseIf System.IO.File.Exists(putanja_pdf_nps + "\" + row1) Then
 
+                        Process.Start(putanja_pdf_nps + "\" + row1)
+                    ElseIf System.IO.File.Exists(putanja_pdf_ob + "\" + row1) Then
+
+                        Process.Start(putanja_pdf_ob + "\" + row1)
+
+                    ElseIf System.IO.File.Exists(putanja_pdf_ur + "\" + row1) Then
+
+                        Process.Start(putanja_pdf_ur + "\" + row1)
                     End If
 
                 End If
@@ -515,26 +519,40 @@ Public Class Form5
                 If e.ColumnIndex = 2 Then
                     'Do any thing
                     Dim row1 As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-                    Dim startpdf As String
 
 
 
 
-                    startpdf = putanja_povratnice + "\" + imesql + "\" + "PDF_A\" + row1
 
 
-                    If System.IO.File.Exists(startpdf) Then
 
-                        Process.Start(startpdf)
-                    Else
+
+
+
+
+                    If System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF\" + row1) Then
 
                         Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF\" + row1)
 
+
+
+                    ElseIf System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF_NPS\" + row1) Then
+
+                        Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF_NPS\" + row1)
+                    ElseIf System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF_OB\" + row1) Then
+
+                        Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF_OB\" + row1)
+
+                    ElseIf System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF_UR\" + row1) Then
+
+                        Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF_UR\" + row1)
                     End If
 
-
-
                 End If
+
+
+
+
 
 
 

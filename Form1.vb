@@ -39,16 +39,22 @@ Public Class Form1
         ime_prezime_operator = My.Settings.ime_prezime_operator
         zupanija_skeniranja = My.Settings.zupanija_skeniranja
         lokacija_izmjere = My.Settings.lokacija_izmjere
-        nadlezni_odjel = My.Settings.nadlezni_odjel
+
         novi_radni_dan = My.Settings.novi_radni_dan
 
         putanja_pdf = My.Settings.putanja_pdf
+
+        putanja_pdf_nps = My.Settings.putanja_pdf_nps
+        putanja_pdf_ob = My.Settings.putanja_pdf_ob
+        putanja_pdf_ur = My.Settings.putanja_pdf_ur
+
+
 
         putanja_txt = My.Settings.putanja_txt
 
         putanja_slika = My.Settings.putanja_slika
 
-        putanja_tiff = My.Settings.putanja_tiff
+
         putanja_jpgtemp = My.Settings.putanja_jpgtemp
 
         putanja_db = My.Settings.putanja_db
@@ -257,19 +263,37 @@ Public Class Form1
         putanja_pdf = putanja_grupe + "\PDF"
         putanja_txt = putanja_grupe + "\TXT"
         putanja_slika = putanja_grupe + "\SLIKANO"
-        putanja_tiff = putanja_grupe + "\TIFF"
+
         putanja_jpgtemp = putanja_grupe + "\JPGTEMP"
+
+
+        putanja_pdf_nps = putanja_grupe + "\PDF_NPS"
+
+        putanja_pdf_ob = putanja_grupe + "\PDF_OB"
+        putanja_pdf_ur = putanja_grupe + "\PDF_UR"
+
+
+
+
 
         ' putanja_db = putanja_grupe2 + "\DB"
         putanja_db = putanja_grupe + "\DB"
 
         My.Settings.putanja_pdf = putanja_pdf
 
+        My.Settings.putanja_pdf_nps = putanja_pdf_nps
+
+        My.Settings.putanja_pdf_ob = putanja_pdf_ob
+
+        My.Settings.putanja_pdf_ur = putanja_pdf_ur
+
+
+
 
 
         My.Settings.putanja_txt = putanja_txt
         My.Settings.putanja_slika = putanja_slika
-        My.Settings.putanja_tiff = putanja_tiff
+
         My.Settings.putanja_jpgtemp = putanja_jpgtemp
 
         My.Settings.putanja_db = putanja_db
@@ -284,6 +308,19 @@ Public Class Form1
         End If
 
 
+        If Not System.IO.Directory.Exists(putanja_pdf_nps) Then
+            System.IO.Directory.CreateDirectory(putanja_pdf_nps)
+        End If
+
+
+        If Not System.IO.Directory.Exists(putanja_pdf_ob) Then
+            System.IO.Directory.CreateDirectory(putanja_pdf_ob)
+        End If
+
+
+        If Not System.IO.Directory.Exists(putanja_pdf_ur) Then
+            System.IO.Directory.CreateDirectory(putanja_pdf_ur)
+        End If
 
 
 
@@ -1374,7 +1411,7 @@ Public Class Form1
 
 
 
-        pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
+        pdf_nepotpisani = putanja_pdf + "\" + broj_povratnice + ".pdf"
 
 
 

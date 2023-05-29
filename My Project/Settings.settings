@@ -32,22 +32,10 @@
     <Setting Name="lokacija_izmjere" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="putanja_tiff" Type="System.String" Scope="User">
+    <Setting Name="putanja_pdf_nps" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="putanja_jpgtemp" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="putanja_pdf2" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="putanja_txt2" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="putanja_slika2" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="putanja_tiff2" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="putanja_db" Type="System.String" Scope="User">
@@ -59,13 +47,7 @@
     <Setting Name="putanja_broj_skena" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="nadlezni_odjel" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="putanja_grupe" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="putanja_grupe2" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ime_grupe_folder" Type="System.String" Scope="User">
@@ -114,6 +96,12 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="putanja_prijenosa" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="putanja_pdf_ob" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="putanja_pdf_ur" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

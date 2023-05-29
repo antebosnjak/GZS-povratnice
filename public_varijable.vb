@@ -17,7 +17,13 @@
     Public putanja_slika As String
     Public putanja_txt As String
     Public putanja_pdf As String
-    Public putanja_tiff As String
+
+
+    Public putanja_pdf_nps As String
+    Public putanja_pdf_ob As String
+    Public putanja_pdf_ur As String
+
+
     Public putanja_jpgtemp As String
 
 
