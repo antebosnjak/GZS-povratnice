@@ -351,8 +351,8 @@ Public Class Form1
                 SQLconnect.Open()
                 SQLcommand = SQLconnect.CreateCommand
                 'SQL Query to Create Table'
-                SQLcommand.CommandText = "CREATE TABLE Skeniranje (AutoID INTEGER PRIMARY KEY AUTOINCREMENT, Broj_skena TEXT, Pdf TEXT, Tip_dozvole TEXT, Ispostava TEXT, Upravni_odjel TEXT, 
-                                            Zupanija TEXT, Datum_akta TEXT, Ostecena_stranica TEXT, Nedostajuca_stranica TEXT, Kreirano_od TEXT, Datum_kreiranja TEXT);"
+                SQLcommand.CommandText = "CREATE TABLE Skeniranje (AutoID INTEGER PRIMARY KEY AUTOINCREMENT, Broj_skena TEXT, Pdf TEXT, Vrsta_povratnice TEXT, Naziv_izmjere TEXT, 
+                                           Kreirano_od TEXT, Datum_kreiranja TEXT);"
                 SQLcommand.ExecuteNonQuery()
                 SQLcommand.Dispose()
                 SQLconnect.Close()
@@ -464,6 +464,10 @@ Public Class Form1
                             End If
                         Next
 
+
+
+                        zelena_kvacica_1.Visible = False
+                        zelena_kvacica_1.Refresh()
 
                         zelena_kvacica_s.Visible = False
                         zelena_kvacica_s.Refresh()
@@ -761,6 +765,18 @@ Public Class Form1
         kreiran_pdf_check.Enabled = True
 
 
+
+
+        Try
+            Diagnostics.Process.Start(pdf_nepotpisani)
+        Catch ex As Exception
+            MsgBox("Nije moguće otvoriti tekući PDF jer.. " & vbCrLf & " ..u Windowsima nije zadan program za otvaranje PDF-a !!", MsgBoxStyle.Exclamation, "GZS povratnice")
+        End Try
+
+
+
+
+
     End Sub
 
 
@@ -770,7 +786,14 @@ Public Class Form1
 
         zelena_kvacica_k.Visible = True
         kreiran_pdf_check.Enabled = False
-       
+
+
+        metapodaci_buton.Enabled = True
+
+
+
+
+
     End Sub
 
 
@@ -1243,7 +1266,7 @@ Public Class Form1
     ' KONVERZIJA U PDF SA SPIRE.NET PDF-om
     Sub konverzija()
 
-        Dim pdf_nepotpisani As String
+
 
 
 

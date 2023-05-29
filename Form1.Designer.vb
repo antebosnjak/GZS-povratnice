@@ -80,7 +80,7 @@ Partial Class Form1
         '
         Me.metapodaci_buton.Image = CType(resources.GetObject("metapodaci_buton.Image"), System.Drawing.Image)
         Me.metapodaci_buton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.metapodaci_buton.Location = New System.Drawing.Point(12, 418)
+        Me.metapodaci_buton.Location = New System.Drawing.Point(12, 363)
         Me.metapodaci_buton.Name = "metapodaci_buton"
         Me.metapodaci_buton.Size = New System.Drawing.Size(110, 40)
         Me.metapodaci_buton.TabIndex = 1
@@ -183,7 +183,7 @@ Partial Class Form1
         '
         Me.novi_sken_buton.Image = CType(resources.GetObject("novi_sken_buton.Image"), System.Drawing.Image)
         Me.novi_sken_buton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.novi_sken_buton.Location = New System.Drawing.Point(12, 471)
+        Me.novi_sken_buton.Location = New System.Drawing.Point(12, 417)
         Me.novi_sken_buton.Name = "novi_sken_buton"
         Me.novi_sken_buton.Size = New System.Drawing.Size(110, 40)
         Me.novi_sken_buton.TabIndex = 17
@@ -204,7 +204,7 @@ Partial Class Form1
         'zelena_kvacica_m
         '
         Me.zelena_kvacica_m.Image = CType(resources.GetObject("zelena_kvacica_m.Image"), System.Drawing.Image)
-        Me.zelena_kvacica_m.Location = New System.Drawing.Point(106, 221)
+        Me.zelena_kvacica_m.Location = New System.Drawing.Point(106, 173)
         Me.zelena_kvacica_m.Name = "zelena_kvacica_m"
         Me.zelena_kvacica_m.Size = New System.Drawing.Size(40, 40)
         Me.zelena_kvacica_m.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -225,7 +225,7 @@ Partial Class Form1
         'metapodaci_check
         '
         Me.metapodaci_check.AutoSize = True
-        Me.metapodaci_check.Location = New System.Drawing.Point(4, 241)
+        Me.metapodaci_check.Location = New System.Drawing.Point(0, 182)
         Me.metapodaci_check.Name = "metapodaci_check"
         Me.metapodaci_check.Size = New System.Drawing.Size(100, 17)
         Me.metapodaci_check.TabIndex = 28
@@ -266,9 +266,9 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.sken_check)
         Me.GroupBox1.Controls.Add(Me.zelena_kvacica_s)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox1.Location = New System.Drawing.Point(143, 190)
+        Me.GroupBox1.Location = New System.Drawing.Point(144, 193)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(152, 268)
+        Me.GroupBox1.Size = New System.Drawing.Size(152, 264)
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = False
         '

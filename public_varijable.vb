@@ -42,6 +42,10 @@
     'Varijable za export
 
     Public pdf_potpisani As String
+    Public pdf_nepotpisani As String
+
+
+
     Public tiff_spojeni As String
 
 
