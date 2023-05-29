@@ -155,7 +155,7 @@ Public Class Form2
 
 
 
-        Select Case MsgBox("Je li zaista želiš resetirati radni dan ?", MsgBoxStyle.YesNo, "GZS sken")
+        Select Case MsgBox("Je li zaista želiš resetirati radni dan ?", MsgBoxStyle.YesNo, "GZS povratnice")
 
 
             Case MsgBoxResult.Yes
@@ -254,7 +254,7 @@ Public Class Form2
 
         If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Then
 
-            MsgBox("Unesi Putanju, Ime i prezime i naziv grupe !", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Unesi Putanju, Ime i prezime i naziv grupe !", MsgBoxStyle.Exclamation, "GZS povratnice")
         Else
 
             Dim frmDialogue As New Form6

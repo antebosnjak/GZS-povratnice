@@ -915,7 +915,7 @@ Public Class Form1
 
 
 
-            Select Case MsgBox("Je li zaista želiš resetirati tekući sken ?", MsgBoxStyle.YesNo, "GZS sken")
+            Select Case MsgBox("Je li zaista želiš resetirati tekući sken ?", MsgBoxStyle.YesNo, "GZS povratnice")
 
 
                 Case MsgBoxResult.Yes
@@ -936,7 +936,7 @@ Public Class Form1
 
                     zelena_kvacica_s.Visible = False
                     zelena_kvacica_s.Refresh()
-                  
+
                     zelena_kvacica_m.Visible = False
                     zelena_kvacica_m.Refresh()
                     zelena_kvacica_k.Visible = False
@@ -946,7 +946,7 @@ Public Class Form1
 
 
 
-                
+
                     metapodaci_buton.Enabled = False
                     novi_sken_buton.Enabled = False
                     skeniraj_buton.Enabled = True
@@ -958,7 +958,7 @@ Public Class Form1
                     sken_check.Enabled = False
                     metapodaci_check.Enabled = False
                     vrsta_akta_checkbox.Enabled = False
-                
+
 
 
                     'Brisanje nepotrebnih datoteka
@@ -980,7 +980,7 @@ Public Class Form1
 
                     Next
 
-                   
+
 
                     Dim dirinfo2 As New System.IO.DirectoryInfo(putanja_povratnice)
                     files = dirinfo2.GetFiles("*.jpg", IO.SearchOption.TopDirectoryOnly)
@@ -1004,24 +1004,18 @@ Public Class Form1
 
 
 
-                    Dim pdf1 As String
 
 
 
 
-                    Dim putanja_txt_save As String
+
+                    pdf_nepotpisani = putanja_pdf + "\" + broj_povratnice + ".pdf"
 
 
 
-                    pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
 
 
-                    pdf1 = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".pdf"
-                    
 
-                    putanja_txt_save = putanja_txt + "\" + DateTime.Now.ToString("yyyy-MM-dd") + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".txt"
-
-                 
 
 
 
@@ -1032,20 +1026,8 @@ Public Class Form1
                     End If
 
 
-                    If File.Exists(pdf1) Then
-
-                        System.IO.File.Delete(pdf1)
-
-                    End If
 
 
-
-
-                    If File.Exists(putanja_txt_save) Then
-
-                        System.IO.File.Delete(putanja_txt_save)
-
-                    End If
 
 
 
@@ -1076,7 +1058,7 @@ Public Class Form1
 
                             My.Settings.broj_skena = broj_skena
 
-                            
+
 
                         Else
 
@@ -1109,7 +1091,7 @@ Public Class Form1
 
         Catch
 
-            MsgBox("Zatvori sve otvorene datoteke !! ", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Zatvori sve otvorene datoteke !! ", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
 
         End Try
@@ -1142,7 +1124,7 @@ Public Class Form1
             ' MsgBox(imesqlitedatoteke)
 
             If imesqlitedatoteke = "" Then
-                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 
@@ -1162,7 +1144,7 @@ Public Class Form1
             ' MsgBox(imesqlitedatoteke)
 
             If imesqlitedatoteke = "" Then
-                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 
@@ -1185,7 +1167,7 @@ Public Class Form1
             ' MsgBox(imesqlitedatoteke)
 
             If imesqlitedatoteke = "" Then
-                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 

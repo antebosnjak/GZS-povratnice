@@ -70,7 +70,7 @@ Public Class Form5
 
             If execute = 1 Then
                 MessageBox.Show("Redak je uspješno obrisan...",
-                                "GZS sken",
+                                "GZS povratnice",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information)
 
 
@@ -563,7 +563,7 @@ Public Class Form5
 
         Catch
 
-            MsgBox("Pogreška u selektiranju datoteka!", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Pogreška u selektiranju datoteka!", MsgBoxStyle.Exclamation, "GZS povratnice")
 
         End Try
 
@@ -638,7 +638,7 @@ Public Class Form5
 
 
         If brredaka = 1 Then
-            MsgBox("Nema podataka za export!!", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Nema podataka za export!!", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
         End If
 
@@ -655,14 +655,14 @@ Public Class Form5
 
                 If IsFileInUse(imedatoteke2) = True Then
 
-                    MsgBox("TXT datoteka je otvorena u drugoj aplikaciji !", MsgBoxStyle.Exclamation, "GZS sken")
+                    MsgBox("TXT datoteka je otvorena u drugoj aplikaciji !", MsgBoxStyle.Exclamation, "GZS povratnice")
 
                     Exit Sub
                 End If
 
                 If System.IO.File.Exists(imedatoteke2) Then
 
-                    Select Case MsgBox("TXT datoteka postoji!! Je li je zaista želiš izbrisati ?", MsgBoxStyle.YesNo, "GZS sken")
+                    Select Case MsgBox("TXT datoteka postoji!! Je li je zaista želiš izbrisati ?", MsgBoxStyle.YesNo, "GZS povratnice")
 
 
                         Case MsgBoxResult.Yes
@@ -709,7 +709,7 @@ Public Class Form5
 
                 AutoClosingMessageBox.Factory(showMethod:=Function(caption, buttons)
                                                               Return MessageBox.Show(Me, "CSV datoteka je uspješno kreirana !", caption, buttons, MessageBoxIcon.Information)
-                                                          End Function, caption:="GZS sken").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
+                                                          End Function, caption:="GZS povratnice").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
 
 
 
