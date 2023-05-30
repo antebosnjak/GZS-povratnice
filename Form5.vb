@@ -52,7 +52,7 @@ Public Class Form5
 
             If MessageBox.Show("ID: " & autoidtextbox.Text.Trim() &
                     "--> Je li stvarno želiš brisati selektirani redak?",
-                               "GZS sken",
+                               "GZS povratnice",
                                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                                MessageBoxDefaultButton.Button2) = DialogResult.No Then
                 Exit Sub
@@ -369,7 +369,7 @@ Public Class Form5
 
                 If MessageBox.Show("ID: " & autoidtextbox.Text.Trim() &
                             "--> Želiš li osvježiti podatke u selektiranom retku SQLite baze?",
-                                       "GZS sken",
+                                       "GZS povratnice",
                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                                        MessageBoxDefaultButton.Button2) = DialogResult.No Then
                     Exit Sub
@@ -393,7 +393,7 @@ Public Class Form5
 
                 Dim result As DialogResult
                 result = MessageBox.Show("Želiš li u SQLite bazu dodatni novi redak? (Y/N)",
-                "GZS sken",
+                "GZS povratnice",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
@@ -420,7 +420,7 @@ Public Class Form5
                 MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Else
                 MessageBox.Show("Podaci uspješno dodani u SQLite bazu",
-                "GZS sken", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                "GZS povratnice", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
             UpdateDataBiding()
             addnew_buton.Text = "Dodaj novi"
@@ -430,7 +430,7 @@ Public Class Form5
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message.ToString(),
-                            "GZS sken",
+                            "GZS povratnice",
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             dbcommand = ""
@@ -522,14 +522,6 @@ Public Class Form5
 
 
 
-
-
-
-
-
-
-
-
                     If System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF\" + row1) Then
 
                         Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF\" + row1)
@@ -551,14 +543,7 @@ Public Class Form5
                 End If
 
 
-
-
-
-
-
-
             End If
-
 
 
         Catch

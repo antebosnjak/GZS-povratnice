@@ -215,7 +215,7 @@ Partial Class Form5
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(413, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(947, 580)
+        Me.GroupBox2.Size = New System.Drawing.Size(896, 580)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pregled podataka"
@@ -225,7 +225,7 @@ Partial Class Form5
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(15, 19)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(926, 554)
+        Me.DataGridView1.Size = New System.Drawing.Size(866, 554)
         Me.DataGridView1.TabIndex = 0
         '
         'movefirst_buton
@@ -318,9 +318,9 @@ Partial Class Form5
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.positionlabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 642)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 638)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1379, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1318, 22)
         Me.StatusStrip1.TabIndex = 26
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -364,7 +364,7 @@ Partial Class Form5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1379, 664)
+        Me.ClientSize = New System.Drawing.Size(1318, 660)
         Me.ControlBox = False
         Me.Controls.Add(Me.exportcsv_buton)
         Me.Controls.Add(Me.exit_buton)

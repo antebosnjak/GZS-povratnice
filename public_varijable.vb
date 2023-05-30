@@ -15,7 +15,6 @@
     Public naziv_grupe As String
     Public broj_skena As Integer
     Public putanja_slika As String
-    Public putanja_txt As String
     Public putanja_pdf As String
 
 

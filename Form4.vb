@@ -2,7 +2,7 @@
 Imports System.IO
 Imports System.Text
 Imports System.Data.SQLite
-Imports WinSCP
+
 
 
 Public Class Form4
@@ -174,7 +174,7 @@ Public Class Form4
             Dim execute As Integer = command.ExecuteNonQuery()
 
             If execute = -1 Then
-                MessageBox.Show("Podaci nisu spremeljeni u SQLite bazu - Pogreška u spremnanju..", "GZS sken",
+                MessageBox.Show("Podaci nisu spremeljeni u SQLite bazu - Pogreška u spremnanju..", "GZS povratnice",
                     MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Else
 
@@ -204,15 +204,7 @@ Public Class Form4
 
         End Try
 
-
-        If ftp_slanje = True Then
-            spremi_podatke.Enabled = False
-            Task.Run(Sub() Upload())
-        Else
-
-            Me.Close()
-
-        End If
+        Me.Close()
 
     End Sub
 
@@ -233,10 +225,7 @@ Public Class Form4
 
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ftp_slanje = My.Settings.ftp_slanje
 
-        ProgressBar1.Visible = False
-        Label11.Visible = False
 
         Dim di As Integer
         Dim di2 As Integer
@@ -329,150 +318,10 @@ Public Class Form4
         End If
     End Sub
 
-    Private Sub Upload()
-
-        Dim sftp_slanje As String
-
-        sftp_slanje = My.Settings.sftp_slanje
-
-        trenutni_radni_dan = DateTime.Now.ToString("yyyy-MM-dd")
-
-
-        Try
-
-
-            Using session As New Session
-                Dim sessionOptions As New SessionOptions
-                With sessionOptions
-
-                    If sftp_slanje = True Then
-                        .Protocol = Protocol.Sftp
-                        .HostName = My.Settings.ime_servera
-                        .UserName = My.Settings.username
-                        .Password = My.Settings.lozinka
-                        .SshHostKeyFingerprint = My.Settings.fingerprint
-
-                        .PortNumber = My.Settings.broj_porta
-                        .TimeoutInMilliseconds = 60000
-                        session.DisableVersionCheck = True
-                    Else
-                        .Protocol = Protocol.Ftp
-
-                        .HostName = My.Settings.ime_servera
-                        .UserName = My.Settings.username
-                        .Password = My.Settings.lozinka
-
-
-                        .PortNumber = My.Settings.broj_porta
-                        .TimeoutInMilliseconds = 60000
-                        session.DisableVersionCheck = True
-
-                    End If
-
-
-                End With
-
-
-                AddHandler session.FileTransferProgress, Sub(sender, e) ProgressBar1.Invoke(
-                    Sub()
-
-                        ProgressBar1.Visible = True
-                        spremi_podatke.Text = "Šalju se podaci akta..."
-                        spremi_podatke.Enabled = False
-
-
-                        Label11.Visible = True
-                        ProgressBar1.Value = CInt(e.OverallProgress * 100)
-                        Label11.Text = (Str(CInt(e.OverallProgress * 100))) + " %"
-
-                    End Sub)
-
-                session.Open(sessionOptions)
-
-                'session.PutFilesToDirectory(localDirectory, remoteDirectory).Check()
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN")
-                End If
-
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe) Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe)
-                End If
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder) Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder)
-                End If
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/DB") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/DB")
-                End If
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/JPGTEMP") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/JPGTEMP")
-
-                End If
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/SLIKANO") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/SLIKANO")
-
-                End If
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/PDF") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/PDF")
-
-                End If
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/PDF_A") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/PDF_A")
-
-                End If
-
-
-
-                If Not session.FileExists("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/TXT") Then
-                    session.CreateDirectory("SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/TXT")
-
-                End If
-
-
-                session.PutFilesToDirectory(putanja_grupe + "\JPGTEMP", "SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/SLIKANO", "*.jpg").Check()
-                session.PutFilesToDirectory(putanja_grupe + "\PDF", "SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/PDF", trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".pdf").Check()
-                session.PutFilesToDirectory(putanja_grupe + "\PDF_A", "SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/PDF_A", trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".pdf").Check()
-                session.PutFilesToDirectory(putanja_grupe + "\TXT", "SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/TXT", trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".txt").Check()
-                session.PutFilesToDirectory(putanja_grupe + "\DB", "SKENIRANJE_TEREN/" + naziv_grupe + "/" + ime_grupe_folder + "/DB").Check()
-
-                '
-                '
-                MsgBox("Slanje podataka na server uspješno je izvršeno..", MsgBoxStyle.Information, "GZS sken")
-
-
-                Me.Invoke(Sub() zavrseno())
-
-            End Using
-
-
-        Catch e As Exception
-            MsgBox(e.Message, MsgBoxStyle.Exclamation, "GZS sken")
-
-        End Try
-
-
-
-    End Sub
 
     Private Sub zavrseno()
         spremi_podatke.Enabled = True
         spremi_podatke.Text = "Spremi podatke"
-
-        ProgressBar1.Visible = False
-        Label11.Visible = False
 
 
         For Each file In files

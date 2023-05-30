@@ -134,13 +134,7 @@ Public Class Form2
         TextBox2.Text = ime_prezime_operator
         TextBox3.Text = naziv_grupe
 
-        If ftp_slanje = True Then
-            ftp_slanje_checkbox.Checked = True
-            ftp_postavke_buton.Enabled = True
-        Else
-            ftp_slanje_checkbox.Checked = False
-            ftp_postavke_buton.Enabled = False
-        End If
+
 
 
 
@@ -228,42 +222,8 @@ Public Class Form2
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles ftp_slanje_checkbox.CheckedChanged
-        If ftp_slanje_checkbox.Checked = True Then
-
-            ftp_slanje = True
-            My.Settings.ftp_slanje = ftp_slanje
-
-            ftp_postavke_buton.Enabled = True
-
-        Else
-
-            ftp_slanje = False
-            My.Settings.ftp_slanje = ftp_slanje
-
-            ftp_postavke_buton.Enabled = False
-        End If
 
 
-
-
-    End Sub
-
-    Private Sub ftp_postavke_buton_Click(sender As Object, e As EventArgs) Handles ftp_postavke_buton.Click
-
-
-        If ime_prezime_operator = "" Or putanja_povratnice = "" Or naziv_grupe = "" Then
-
-            MsgBox("Unesi Putanju, Ime i prezime i naziv grupe !", MsgBoxStyle.Exclamation, "GZS povratnice")
-        Else
-
-            Dim frmDialogue As New Form6
-
-            frmDialogue.ShowDialog()
-
-        End If
-
-    End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
 
