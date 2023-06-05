@@ -52,7 +52,7 @@ Public Class Form5
 
             If MessageBox.Show("ID: " & autoidtextbox.Text.Trim() &
                     "--> Je li stvarno želiš brisati selektirani redak?",
-                               "GZS sken",
+                               "GZS povratnice",
                                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                                MessageBoxDefaultButton.Button2) = DialogResult.No Then
                 Exit Sub
@@ -70,7 +70,7 @@ Public Class Form5
 
             If execute = 1 Then
                 MessageBox.Show("Redak je uspješno obrisan...",
-                                "GZS sken",
+                                "GZS povratnice",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information)
 
 
@@ -369,7 +369,7 @@ Public Class Form5
 
                 If MessageBox.Show("ID: " & autoidtextbox.Text.Trim() &
                             "--> Želiš li osvježiti podatke u selektiranom retku SQLite baze?",
-                                       "GZS sken",
+                                       "GZS povratnice",
                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                                        MessageBoxDefaultButton.Button2) = DialogResult.No Then
                     Exit Sub
@@ -393,7 +393,7 @@ Public Class Form5
 
                 Dim result As DialogResult
                 result = MessageBox.Show("Želiš li u SQLite bazu dodatni novi redak? (Y/N)",
-                "GZS sken",
+                "GZS povratnice",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
                 If result = DialogResult.Yes Then
@@ -420,7 +420,7 @@ Public Class Form5
                 MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Else
                 MessageBox.Show("Podaci uspješno dodani u SQLite bazu",
-                "GZS sken", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                "GZS povratnice", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
             UpdateDataBiding()
             addnew_buton.Text = "Dodaj novi"
@@ -430,7 +430,7 @@ Public Class Form5
 
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message.ToString(),
-                            "GZS sken",
+                            "GZS povratnice",
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             dbcommand = ""
@@ -453,21 +453,25 @@ Public Class Form5
 
                 If e.ColumnIndex = 2 Then
                     'Do any thing
-                    Dim startpdf As String
+
                     Dim row1 As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-                    startpdf = putanja_pdf + "\" + row1
 
 
-                    MsgBox(row1)
-                    MsgBox(putanja_pdf)
 
-                    If System.IO.File.Exists(startpdf) Then
 
-                        Process.Start(startpdf)
-                    Else
+                    If System.IO.File.Exists(putanja_pdf + "\" + row1) Then
 
                         Process.Start(putanja_pdf + "\" + row1)
+                    ElseIf System.IO.File.Exists(putanja_pdf_nps + "\" + row1) Then
 
+                        Process.Start(putanja_pdf_nps + "\" + row1)
+                    ElseIf System.IO.File.Exists(putanja_pdf_ob + "\" + row1) Then
+
+                        Process.Start(putanja_pdf_ob + "\" + row1)
+
+                    ElseIf System.IO.File.Exists(putanja_pdf_ur + "\" + row1) Then
+
+                        Process.Start(putanja_pdf_ur + "\" + row1)
                     End If
 
                 End If
@@ -515,37 +519,36 @@ Public Class Form5
                 If e.ColumnIndex = 2 Then
                     'Do any thing
                     Dim row1 As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-                    Dim startpdf As String
 
 
 
-
-                    startpdf = putanja_povratnice + "\" + imesql + "\" + "PDF_A\" + row1
-
-
-                    If System.IO.File.Exists(startpdf) Then
-
-                        Process.Start(startpdf)
-                    Else
+                    If System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF\" + row1) Then
 
                         Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF\" + row1)
 
+
+
+                    ElseIf System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF_NPS\" + row1) Then
+
+                        Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF_NPS\" + row1)
+                    ElseIf System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF_OB\" + row1) Then
+
+                        Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF_OB\" + row1)
+
+                    ElseIf System.IO.File.Exists(putanja_povratnice + "\" + imesql + "\" + "PDF_UR\" + row1) Then
+
+                        Process.Start(putanja_povratnice + "\" + imesql + "\" + "PDF_UR\" + row1)
                     End If
 
-
-
                 End If
-
-
 
 
             End If
 
 
-
         Catch
 
-            MsgBox("Pogreška u selektiranju datoteka!", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Pogreška u selektiranju datoteka!", MsgBoxStyle.Exclamation, "GZS povratnice")
 
         End Try
 
@@ -620,7 +623,7 @@ Public Class Form5
 
 
         If brredaka = 1 Then
-            MsgBox("Nema podataka za export!!", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Nema podataka za export!!", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
         End If
 
@@ -637,14 +640,14 @@ Public Class Form5
 
                 If IsFileInUse(imedatoteke2) = True Then
 
-                    MsgBox("TXT datoteka je otvorena u drugoj aplikaciji !", MsgBoxStyle.Exclamation, "GZS sken")
+                    MsgBox("TXT datoteka je otvorena u drugoj aplikaciji !", MsgBoxStyle.Exclamation, "GZS povratnice")
 
                     Exit Sub
                 End If
 
                 If System.IO.File.Exists(imedatoteke2) Then
 
-                    Select Case MsgBox("TXT datoteka postoji!! Je li je zaista želiš izbrisati ?", MsgBoxStyle.YesNo, "GZS sken")
+                    Select Case MsgBox("TXT datoteka postoji!! Je li je zaista želiš izbrisati ?", MsgBoxStyle.YesNo, "GZS povratnice")
 
 
                         Case MsgBoxResult.Yes
@@ -691,7 +694,7 @@ Public Class Form5
 
                 AutoClosingMessageBox.Factory(showMethod:=Function(caption, buttons)
                                                               Return MessageBox.Show(Me, "CSV datoteka je uspješno kreirana !", caption, buttons, MessageBoxIcon.Information)
-                                                          End Function, caption:="GZS sken").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
+                                                          End Function, caption:="GZS povratnice").Show(timeout:=1200, buttons:=MessageBoxButtons.OK)
 
 
 

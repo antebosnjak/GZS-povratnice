@@ -31,8 +31,6 @@ Partial Class Form4
         Me.nazivizmjere_textbox = New System.Windows.Forms.TextBox()
         Me.pdf_datotekatextbox = New System.Windows.Forms.TextBox()
         Me.broj_skenatextbox = New System.Windows.Forms.TextBox()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.vrstapovratnice_textbox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.datum_textbox = New System.Windows.Forms.TextBox()
@@ -42,7 +40,7 @@ Partial Class Form4
         '
         Me.spremi_podatke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.spremi_podatke.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.spremi_podatke.Location = New System.Drawing.Point(442, 314)
+        Me.spremi_podatke.Location = New System.Drawing.Point(442, 267)
         Me.spremi_podatke.Name = "spremi_podatke"
         Me.spremi_podatke.Size = New System.Drawing.Size(234, 61)
         Me.spremi_podatke.TabIndex = 4
@@ -114,23 +112,6 @@ Partial Class Form4
         Me.broj_skenatextbox.TabIndex = 8
         Me.broj_skenatextbox.TabStop = False
         '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Location = New System.Drawing.Point(15, 414)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(661, 20)
-        Me.ProgressBar1.TabIndex = 21
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label11.Location = New System.Drawing.Point(324, 396)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 15)
-        Me.Label11.TabIndex = 7
-        Me.Label11.Text = "Label11"
-        '
         'vrstapovratnice_textbox
         '
         Me.vrstapovratnice_textbox.Location = New System.Drawing.Point(192, 120)
@@ -159,10 +140,8 @@ Partial Class Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(688, 446)
+        Me.ClientSize = New System.Drawing.Size(688, 351)
         Me.Controls.Add(Me.vrstapovratnice_textbox)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.broj_skenatextbox)
         Me.Controls.Add(Me.pdf_datotekatextbox)
         Me.Controls.Add(Me.nazivizmjere_textbox)
@@ -194,8 +173,6 @@ Partial Class Form4
     Friend WithEvents nazivizmjere_textbox As TextBox
     Friend WithEvents pdf_datotekatextbox As TextBox
     Friend WithEvents broj_skenatextbox As TextBox
-    Friend WithEvents ProgressBar1 As ProgressBar
-    Friend WithEvents Label11 As Label
     Friend WithEvents vrstapovratnice_textbox As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents datum_textbox As TextBox

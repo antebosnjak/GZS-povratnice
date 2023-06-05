@@ -177,12 +177,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property putanja_tiff() As String
+        Public Property putanja_pdf_nps() As String
             Get
-                Return CType(Me("putanja_tiff"),String)
+                Return CType(Me("putanja_pdf_nps"),String)
             End Get
             Set
-                Me("putanja_tiff") = value
+                Me("putanja_pdf_nps") = value
             End Set
         End Property
         
@@ -195,54 +195,6 @@ Namespace My
             End Get
             Set
                 Me("putanja_jpgtemp") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property putanja_pdf2() As String
-            Get
-                Return CType(Me("putanja_pdf2"),String)
-            End Get
-            Set
-                Me("putanja_pdf2") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property putanja_txt2() As String
-            Get
-                Return CType(Me("putanja_txt2"),String)
-            End Get
-            Set
-                Me("putanja_txt2") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property putanja_slika2() As String
-            Get
-                Return CType(Me("putanja_slika2"),String)
-            End Get
-            Set
-                Me("putanja_slika2") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property putanja_tiff2() As String
-            Get
-                Return CType(Me("putanja_tiff2"),String)
-            End Get
-            Set
-                Me("putanja_tiff2") = value
             End Set
         End Property
         
@@ -285,36 +237,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property nadlezni_odjel() As String
-            Get
-                Return CType(Me("nadlezni_odjel"),String)
-            End Get
-            Set
-                Me("nadlezni_odjel") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property putanja_grupe() As String
             Get
                 Return CType(Me("putanja_grupe"),String)
             End Get
             Set
                 Me("putanja_grupe") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property putanja_grupe2() As String
-            Get
-                Return CType(Me("putanja_grupe2"),String)
-            End Get
-            Set
-                Me("putanja_grupe2") = value
             End Set
         End Property
         
@@ -507,6 +435,30 @@ Namespace My
             End Get
             Set
                 Me("putanja_prijenosa") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property putanja_pdf_ob() As String
+            Get
+                Return CType(Me("putanja_pdf_ob"),String)
+            End Get
+            Set
+                Me("putanja_pdf_ob") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property putanja_pdf_ur() As String
+            Get
+                Return CType(Me("putanja_pdf_ur"),String)
+            End Get
+            Set
+                Me("putanja_pdf_ur") = value
             End Set
         End Property
     End Class

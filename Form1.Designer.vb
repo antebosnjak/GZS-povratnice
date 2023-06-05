@@ -108,7 +108,7 @@ Partial Class Form1
         '
         'zavrsi_dan_buton
         '
-        Me.zavrsi_dan_buton.Location = New System.Drawing.Point(346, 197)
+        Me.zavrsi_dan_buton.Location = New System.Drawing.Point(346, 200)
         Me.zavrsi_dan_buton.Name = "zavrsi_dan_buton"
         Me.zavrsi_dan_buton.Size = New System.Drawing.Size(110, 40)
         Me.zavrsi_dan_buton.TabIndex = 7

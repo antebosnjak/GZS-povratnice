@@ -37,7 +37,6 @@ Partial Class Form7
         Me.vrsta_akta_combobox.Location = New System.Drawing.Point(135, 40)
         Me.vrsta_akta_combobox.Name = "vrsta_akta_combobox"
         Me.vrsta_akta_combobox.Size = New System.Drawing.Size(474, 21)
-        Me.vrsta_akta_combobox.Sorted = True
         Me.vrsta_akta_combobox.TabIndex = 0
         '
         'Label1

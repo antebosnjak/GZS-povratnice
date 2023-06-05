@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("GZS sken ver. 2.7")>
-<Assembly: AssemblyDescription("Travanj, 2022.")>
+<Assembly: AssemblyTitle("GZS povratnice ver. 1.0")>
+<Assembly: AssemblyDescription("Svibanj 2023.")>
 <Assembly: AssemblyCompany("Geodetski zavod d.d.")>
-<Assembly: AssemblyProduct("GZS sken")>
-<Assembly: AssemblyCopyright("Copyright ©  2022")>
+<Assembly: AssemblyProduct("GZS povratnice")>
+<Assembly: AssemblyCopyright("Copyright ©  2023")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(True)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("2.6.0.0")>
-<Assembly: AssemblyFileVersion("2.6.0.0")>
+<Assembly: AssemblyVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("1.0.0.0")>

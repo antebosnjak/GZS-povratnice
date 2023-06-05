@@ -39,16 +39,21 @@ Public Class Form1
         ime_prezime_operator = My.Settings.ime_prezime_operator
         zupanija_skeniranja = My.Settings.zupanija_skeniranja
         lokacija_izmjere = My.Settings.lokacija_izmjere
-        nadlezni_odjel = My.Settings.nadlezni_odjel
+
         novi_radni_dan = My.Settings.novi_radni_dan
 
         putanja_pdf = My.Settings.putanja_pdf
 
-        putanja_txt = My.Settings.putanja_txt
+        putanja_pdf_nps = My.Settings.putanja_pdf_nps
+        putanja_pdf_ob = My.Settings.putanja_pdf_ob
+        putanja_pdf_ur = My.Settings.putanja_pdf_ur
+
+
+
 
         putanja_slika = My.Settings.putanja_slika
 
-        putanja_tiff = My.Settings.putanja_tiff
+
         putanja_jpgtemp = My.Settings.putanja_jpgtemp
 
         putanja_db = My.Settings.putanja_db
@@ -156,8 +161,8 @@ Public Class Form1
 
             novi_sken_buton.Enabled = False
 
-            zavrsi_dan_buton.Enabled = True
-            zavrsi_dan_buton.Text = "Slanje podataka"
+            zavrsi_dan_buton.Enabled = False
+            zavrsi_dan_buton.Text = "Završi dan"
 
             kreiraj_pdf_buton.Enabled = False
             reset_skena_buton.Enabled = False
@@ -255,21 +260,38 @@ Public Class Form1
 
 
         putanja_pdf = putanja_grupe + "\PDF"
-        putanja_txt = putanja_grupe + "\TXT"
+
         putanja_slika = putanja_grupe + "\SLIKANO"
-        putanja_tiff = putanja_grupe + "\TIFF"
+
         putanja_jpgtemp = putanja_grupe + "\JPGTEMP"
+
+
+        putanja_pdf_nps = putanja_grupe + "\PDF_NPS"
+
+        putanja_pdf_ob = putanja_grupe + "\PDF_OB"
+        putanja_pdf_ur = putanja_grupe + "\PDF_UR"
+
+
+
+
 
         ' putanja_db = putanja_grupe2 + "\DB"
         putanja_db = putanja_grupe + "\DB"
 
         My.Settings.putanja_pdf = putanja_pdf
 
+        My.Settings.putanja_pdf_nps = putanja_pdf_nps
+
+        My.Settings.putanja_pdf_ob = putanja_pdf_ob
+
+        My.Settings.putanja_pdf_ur = putanja_pdf_ur
 
 
-        My.Settings.putanja_txt = putanja_txt
+
+
+
         My.Settings.putanja_slika = putanja_slika
-        My.Settings.putanja_tiff = putanja_tiff
+
         My.Settings.putanja_jpgtemp = putanja_jpgtemp
 
         My.Settings.putanja_db = putanja_db
@@ -279,19 +301,23 @@ Public Class Form1
 
 
         'Putanja PDF
-        If Not System.IO.Directory.Exists(putanja_pdf) Then
-            System.IO.Directory.CreateDirectory(putanja_pdf)
+
+
+
+        If Not System.IO.Directory.Exists(putanja_pdf_nps) Then
+            System.IO.Directory.CreateDirectory(putanja_pdf_nps)
         End If
 
 
-
-
-
-
-        'Putanja TXT
-        If Not System.IO.Directory.Exists(putanja_txt) Then
-            System.IO.Directory.CreateDirectory(putanja_txt)
+        If Not System.IO.Directory.Exists(putanja_pdf_ob) Then
+            System.IO.Directory.CreateDirectory(putanja_pdf_ob)
         End If
+
+
+        If Not System.IO.Directory.Exists(putanja_pdf_ur) Then
+            System.IO.Directory.CreateDirectory(putanja_pdf_ur)
+        End If
+
 
 
 
@@ -360,15 +386,15 @@ Public Class Form1
 
                 AutoClosingMessageBox.Factory(showMethod:=Function(caption, buttons)
                                                               Return MessageBox.Show(Me, "SQLite dnevna baza skeniranja je uspješno kreirana...  ", caption, buttons, MessageBoxIcon.Information)
-                                                          End Function, caption:="GZS sken").Show(timeout:=2000, buttons:=MessageBoxButtons.OK)
+                                                          End Function, caption:="GZS povratnice").Show(timeout:=2000, buttons:=MessageBoxButtons.OK)
 
 
             Catch ex As Exception
-                MsgBox("Pogreška u kreiranju SQLite baze", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Pogreška u kreiranju SQLite baze", MsgBoxStyle.Exclamation, "GZS povratnice")
             End Try
 
         Else
-            MsgBox("SQLite baza već postoji...", MsgBoxStyle.Information, "GZS sken")
+            MsgBox("SQLite baza već postoji...", MsgBoxStyle.Information, "GZS povratnice")
 
         End If
 
@@ -420,197 +446,160 @@ Public Class Form1
 
 
 
-            If zavrsi_dan_buton.Text = "Slanje podataka" Then
 
+            Select Case MsgBox("Je li zaista želiš završiti radni dan ?", MsgBoxStyle.YesNo, "GZS povratnice")
 
-                Dim frmDialogue As New Form9
 
-                frmDialogue.ShowDialog()
+                Case MsgBoxResult.Yes
 
 
-            Else
 
+                    start_radnog_dana = False
+                    My.Settings.start_radnog_dana = start_radnog_dana
 
 
-                Select Case MsgBox("Je li zaista želiš završiti radni dan ?", MsgBoxStyle.YesNo, "GZS sken")
 
 
-                    Case MsgBoxResult.Yes
+                    novi_radni_dan = ""
+                    My.Settings.novi_radni_dan = novi_radni_dan
 
-                        ftp_slanje = False
-                        My.Settings.ftp_slanje = ftp_slanje
+                    start_radnog_dana_buton.Enabled = True
 
-                        start_radnog_dana = False
-                        My.Settings.start_radnog_dana = start_radnog_dana
 
+                    o_programu_buton.Visible = True
+                    CircularProgressBar1.Visible = False
 
-
-
-                        novi_radni_dan = ""
-                        My.Settings.novi_radni_dan = novi_radni_dan
-
-                        start_radnog_dana_buton.Enabled = True
-
-
-                        o_programu_buton.Visible = True
-                        CircularProgressBar1.Visible = False
-
-                        Dim ChkBox As CheckBox = Nothing
-                        ' to unchecked all 
-                        For Each xObject As Object In GroupBox1.Controls
-                            If TypeOf xObject Is CheckBox Then
-                                ChkBox = xObject
-                                ChkBox.Checked = False
-                            End If
-                        Next
-
-
-
-                        zelena_kvacica_1.Visible = False
-                        zelena_kvacica_1.Refresh()
-
-                        zelena_kvacica_s.Visible = False
-                        zelena_kvacica_s.Refresh()
-
-                        zelena_kvacica_m.Visible = False
-                        zelena_kvacica_m.Refresh()
-                        zelena_kvacica_k.Visible = False
-                        zelena_kvacica_k.Refresh()
-                        zelena_kvacica_v.Visible = False
-                        zelena_kvacica_v.Refresh()
-
-
-
-                        metapodaci_buton.Enabled = False
-                        novi_sken_buton.Enabled = False
-                        skeniraj_buton.Enabled = True
-                        kreiraj_pdf_buton.Enabled = False
-                        vrsta_akta_buton.Enabled = False
-                        reset_skena_buton.Enabled = False
-                        skeniraj_buton.Enabled = False
-
-
-                        kreiran_pdf_check.Enabled = False
-                        sken_check.Enabled = False
-                        metapodaci_check.Enabled = False
-                        vrsta_akta_checkbox.Enabled = False
-                      
-
-                        'Brisanje nepotrebnih datoteka
-                        Dim dirinfo As New System.IO.DirectoryInfo(putanja_jpgtemp)
-                        files = dirinfo.GetFiles("*.jpg", IO.SearchOption.AllDirectories)
-
-
-
-                        For Each file In files
-
-
-                            datoteka = file.Name
-                            datoteka = putanja_slika + "\" + datoteka
-
-
-                            System.IO.File.Delete(datoteka)
-
-
-
-                        Next
-
-
-                        Dim dirinfo2 As New System.IO.DirectoryInfo(putanja_povratnice)
-                        files = dirinfo2.GetFiles("*.jpg", IO.SearchOption.TopDirectoryOnly)
-
-                        For Each file In files
-                            file.Delete()
-                        Next
-
-
-
-                        Dim dirinfo3 As New System.IO.DirectoryInfo(putanja_jpgtemp)
-                        files = dirinfo3.GetFiles("*.jpg", IO.SearchOption.TopDirectoryOnly)
-
-                        For Each file In files
-                            file.Delete()
-                        Next
-
-
-
-                        Dim pdf_nepotpisani As String
-
-
-
-                        Dim pdf1 As String
-
-
-
-
-                        Dim putanja_txt_save As String
-
-
-
-                        pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
-
-
-
-                        pdf1 = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".pdf"
-
-
-                        putanja_txt_save = putanja_txt + "\" + DateTime.Now.ToString("yyyy-MM-dd") + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".txt"
-
-
-
-
-
-                        If File.Exists(pdf_nepotpisani) Then
-
-                            System.IO.File.Delete(pdf_nepotpisani)
-
+                    Dim ChkBox As CheckBox = Nothing
+                    ' to unchecked all 
+                    For Each xObject As Object In GroupBox1.Controls
+                        If TypeOf xObject Is CheckBox Then
+                            ChkBox = xObject
+                            ChkBox.Checked = False
                         End If
+                    Next
+
+
+
+                    zelena_kvacica_1.Visible = False
+                    zelena_kvacica_1.Refresh()
+
+                    zelena_kvacica_s.Visible = False
+                    zelena_kvacica_s.Refresh()
+
+                    zelena_kvacica_m.Visible = False
+                    zelena_kvacica_m.Refresh()
+                    zelena_kvacica_k.Visible = False
+                    zelena_kvacica_k.Refresh()
+                    zelena_kvacica_v.Visible = False
+                    zelena_kvacica_v.Refresh()
+
+
+
+                    metapodaci_buton.Enabled = False
+                    novi_sken_buton.Enabled = False
+                    skeniraj_buton.Enabled = True
+                    kreiraj_pdf_buton.Enabled = False
+                    vrsta_akta_buton.Enabled = False
+                    reset_skena_buton.Enabled = False
+                    skeniraj_buton.Enabled = False
+
+
+                    kreiran_pdf_check.Enabled = False
+                    sken_check.Enabled = False
+                    metapodaci_check.Enabled = False
+                    vrsta_akta_checkbox.Enabled = False
+
+
+                    'Brisanje nepotrebnih datoteka
+                    Dim dirinfo As New System.IO.DirectoryInfo(putanja_jpgtemp)
+                    files = dirinfo.GetFiles("*.jpg", IO.SearchOption.AllDirectories)
+
+
+
+                    For Each file In files
+
+
+                        datoteka = file.Name
+                        datoteka = putanja_slika + "\" + datoteka
+
+
+                        System.IO.File.Delete(datoteka)
+
+
+
+                    Next
+
+
+                    Dim dirinfo2 As New System.IO.DirectoryInfo(putanja_povratnice)
+                    files = dirinfo2.GetFiles("*.jpg", IO.SearchOption.TopDirectoryOnly)
+
+                    For Each file In files
+                        file.Delete()
+                    Next
+
+
+
+                    Dim dirinfo3 As New System.IO.DirectoryInfo(putanja_jpgtemp)
+                    files = dirinfo3.GetFiles("*.jpg", IO.SearchOption.TopDirectoryOnly)
+
+                    For Each file In files
+                        file.Delete()
+                    Next
+
+
+
+                    Dim pdf_nepotpisani As String
 
 
 
 
-                        If File.Exists(pdf1) Then
-
-                            System.IO.File.Delete(pdf1)
-
-                        End If
 
 
 
 
-                        If File.Exists(putanja_txt_save) Then
-
-                            System.IO.File.Delete(putanja_txt_save)
-
-                        End If
+                    pdf_nepotpisani = putanja_pdf + "\" + broj_povratnice + ".pdf"
 
 
 
 
 
-                        'Brisanje kraj
+
+                    If File.Exists(pdf_nepotpisani) Then
+
+                        System.IO.File.Delete(pdf_nepotpisani)
+
+                    End If
 
 
-                        zavrsi_dan_buton.Text = "Slanje podataka"
-                        broj_skena_textbox.Text = ""
-                        broj_skena = 0
-                        My.Settings.broj_skena = broj_skena
 
 
-                        Exit Sub
-
-                    Case MsgBoxResult.No
-                        Exit Sub
-                End Select
 
 
-            End If
+
+
+                    'Brisanje kraj
+
+
+                    zavrsi_dan_buton.Enabled = False
+                    broj_skena_textbox.Text = ""
+                    broj_skena = 0
+                    My.Settings.broj_skena = broj_skena
+
+
+                    Exit Sub
+
+                Case MsgBoxResult.No
+                    Exit Sub
+            End Select
+
+
+
 
 
 
         Catch
 
-            MsgBox("Zatvori sve otvorene datoteke !! ", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Zatvori sve otvorene datoteke !! ", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
 
         End Try
@@ -625,7 +614,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles skeniraj_buton.Click
 
 
-        MsgBox("Pokreni CZUR skener i skeniraj tekući akt...", MsgBoxStyle.Information, "GZS sken")
+        MsgBox("Pokreni CZUR skener i skeniraj tekuću povratnicu...", MsgBoxStyle.Information, "GZS povratnice")
         skeniraj_buton.Enabled = False
         sken_check.Enabled = True
         'sken_check.Checked = False
@@ -755,24 +744,12 @@ Public Class Form1
         konverzija()
 
 
-
-
         CircularProgressBar1.Value = 60
         CircularProgressBar1.Text = 60
         CircularProgressBar1.Refresh()
 
         kreiraj_pdf_buton.Enabled = False
         kreiran_pdf_check.Enabled = True
-
-
-
-
-        Try
-            Diagnostics.Process.Start(pdf_nepotpisani)
-        Catch ex As Exception
-            MsgBox("Nije moguće otvoriti tekući PDF jer.. " & vbCrLf & " ..u Windowsima nije zadan program za otvaranje PDF-a !!", MsgBoxStyle.Exclamation, "GZS povratnice")
-        End Try
-
 
 
 
@@ -878,7 +855,7 @@ Public Class Form1
 
 
 
-            Select Case MsgBox("Je li zaista želiš resetirati tekući sken ?", MsgBoxStyle.YesNo, "GZS sken")
+            Select Case MsgBox("Je li zaista želiš resetirati tekući sken ?", MsgBoxStyle.YesNo, "GZS povratnice")
 
 
                 Case MsgBoxResult.Yes
@@ -899,7 +876,7 @@ Public Class Form1
 
                     zelena_kvacica_s.Visible = False
                     zelena_kvacica_s.Refresh()
-                  
+
                     zelena_kvacica_m.Visible = False
                     zelena_kvacica_m.Refresh()
                     zelena_kvacica_k.Visible = False
@@ -909,7 +886,7 @@ Public Class Form1
 
 
 
-                
+
                     metapodaci_buton.Enabled = False
                     novi_sken_buton.Enabled = False
                     skeniraj_buton.Enabled = True
@@ -921,7 +898,7 @@ Public Class Form1
                     sken_check.Enabled = False
                     metapodaci_check.Enabled = False
                     vrsta_akta_checkbox.Enabled = False
-                
+
 
 
                     'Brisanje nepotrebnih datoteka
@@ -943,7 +920,7 @@ Public Class Form1
 
                     Next
 
-                   
+
 
                     Dim dirinfo2 As New System.IO.DirectoryInfo(putanja_povratnice)
                     files = dirinfo2.GetFiles("*.jpg", IO.SearchOption.TopDirectoryOnly)
@@ -967,24 +944,7 @@ Public Class Form1
 
 
 
-                    Dim pdf1 As String
-
-
-
-
-                    Dim putanja_txt_save As String
-
-
-
-                    pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
-
-
-                    pdf1 = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".pdf"
-                    
-
-                    putanja_txt_save = putanja_txt + "\" + DateTime.Now.ToString("yyyy-MM-dd") + naziv_grupe + Trim(Str(broj_skena)) + "_" + vrsta_akta + ".txt"
-
-                 
+                    pdf_nepotpisani = putanja_pdf + "\" + broj_povratnice + ".pdf"
 
 
 
@@ -993,24 +953,6 @@ Public Class Form1
                         System.IO.File.Delete(pdf_nepotpisani)
 
                     End If
-
-
-                    If File.Exists(pdf1) Then
-
-                        System.IO.File.Delete(pdf1)
-
-                    End If
-
-
-
-
-                    If File.Exists(putanja_txt_save) Then
-
-                        System.IO.File.Delete(putanja_txt_save)
-
-                    End If
-
-
 
                     'Brisanje kraj
 
@@ -1030,7 +972,7 @@ Public Class Form1
 
                         If broj_skena2 < broj_skena Then
 
-                            MsgBox("Nije moguće zadati već korišteni broj skena !!", MsgBoxStyle.Exclamation, "GZS sken")
+                            MsgBox("Nije moguće zadati već korišteni broj skena !!", MsgBoxStyle.Exclamation, "GZS povratnice")
 
 
 
@@ -1039,7 +981,7 @@ Public Class Form1
 
                             My.Settings.broj_skena = broj_skena
 
-                            
+
 
                         Else
 
@@ -1072,7 +1014,7 @@ Public Class Form1
 
         Catch
 
-            MsgBox("Zatvori sve otvorene datoteke !! ", MsgBoxStyle.Exclamation, "GZS sken")
+            MsgBox("Zatvori sve otvorene datoteke !! ", MsgBoxStyle.Exclamation, "GZS povratnice")
             Exit Sub
 
         End Try
@@ -1105,7 +1047,7 @@ Public Class Form1
             ' MsgBox(imesqlitedatoteke)
 
             If imesqlitedatoteke = "" Then
-                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 
@@ -1125,7 +1067,7 @@ Public Class Form1
             ' MsgBox(imesqlitedatoteke)
 
             If imesqlitedatoteke = "" Then
-                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 
@@ -1148,7 +1090,7 @@ Public Class Form1
             ' MsgBox(imesqlitedatoteke)
 
             If imesqlitedatoteke = "" Then
-                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox("Nije selektirana nijedna SQLite *.db datoteka", MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 
@@ -1374,7 +1316,7 @@ Public Class Form1
 
 
 
-        pdf_nepotpisani = putanja_pdf + "\" + trenutni_radni_dan + naziv_grupe + Trim(Str(broj_skena)) + ".pdf"
+        pdf_nepotpisani = putanja_pdf + "\" + broj_povratnice + ".pdf"
 
 
 
@@ -1467,7 +1409,7 @@ Public Class Form1
             If System.IO.File.Exists(putanja_slika + "\" + file.Name) Then
                 Dim poruka As String
                 poruka = "U direktoriju SLIKANO datoteka " + file.Name + " već  postoji !" & vbCrLf & "Resetiraj tekući sken !"
-                MsgBox(poruka, MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox(poruka, MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 
@@ -1483,7 +1425,7 @@ Public Class Form1
             If System.IO.File.Exists(putanja_jpgtemp + "\" + file.Name) Then
                 Dim poruka As String
                 poruka = "U direktoriju JPGTEMP datoteka " + file.Name + " već  postoji !" & vbCrLf & "Resetiraj tekući sken !"
-                MsgBox(poruka, MsgBoxStyle.Exclamation, "GZS sken")
+                MsgBox(poruka, MsgBoxStyle.Exclamation, "GZS povratnice")
                 Exit Sub
             End If
 

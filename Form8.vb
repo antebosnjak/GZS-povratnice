@@ -10,7 +10,8 @@
             Dim CurDir As String = My.Application.Info.DirectoryPath
 
 
-            CurDir = CurDir + "\" + "gzs_sken_upute.pdf"
+            CurDir = CurDir + "\" + "gzs_povratnice_upute.pdf"
+
 
             Process.Start(CurDir)
 
@@ -26,7 +27,7 @@
             Dim CurDir As String = My.Application.Info.DirectoryPath
 
 
-            CurDir = CurDir + "\" + "gzs_sken_verzije.txt"
+            CurDir = CurDir + "\" + "gzs_povratnice_verzije.txt"
 
             Process.Start(CurDir)
 

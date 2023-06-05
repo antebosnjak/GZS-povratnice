@@ -32,8 +32,6 @@ Partial Class Form2
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.reset_dana_buton = New System.Windows.Forms.Button()
-        Me.ftp_slanje_checkbox = New System.Windows.Forms.CheckBox()
-        Me.ftp_postavke_buton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -114,32 +112,11 @@ Partial Class Form2
         Me.reset_dana_buton.Text = "Reset radnog dana"
         Me.reset_dana_buton.UseVisualStyleBackColor = True
         '
-        'ftp_slanje_checkbox
-        '
-        Me.ftp_slanje_checkbox.AutoSize = True
-        Me.ftp_slanje_checkbox.Location = New System.Drawing.Point(15, 218)
-        Me.ftp_slanje_checkbox.Name = "ftp_slanje_checkbox"
-        Me.ftp_slanje_checkbox.Size = New System.Drawing.Size(184, 17)
-        Me.ftp_slanje_checkbox.TabIndex = 10
-        Me.ftp_slanje_checkbox.Text = "FTP slanje podataka u toku rada "
-        Me.ftp_slanje_checkbox.UseVisualStyleBackColor = True
-        '
-        'ftp_postavke_buton
-        '
-        Me.ftp_postavke_buton.Location = New System.Drawing.Point(298, 204)
-        Me.ftp_postavke_buton.Name = "ftp_postavke_buton"
-        Me.ftp_postavke_buton.Size = New System.Drawing.Size(129, 42)
-        Me.ftp_postavke_buton.TabIndex = 11
-        Me.ftp_postavke_buton.Text = "FTP postavke"
-        Me.ftp_postavke_buton.UseVisualStyleBackColor = True
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(754, 262)
-        Me.Controls.Add(Me.ftp_postavke_buton)
-        Me.Controls.Add(Me.ftp_slanje_checkbox)
         Me.Controls.Add(Me.reset_dana_buton)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBox3)
@@ -170,6 +147,4 @@ Partial Class Form2
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents reset_dana_buton As Button
-    Friend WithEvents ftp_slanje_checkbox As CheckBox
-    Friend WithEvents ftp_postavke_buton As Button
 End Class
