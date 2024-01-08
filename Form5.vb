@@ -23,7 +23,7 @@ Public Class Form5
 
 
 
-    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs) Handles neodostajuca_stranicatextbox.TextChanged
+    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -182,10 +182,10 @@ Public Class Form5
             If cmd Is Nothing Then
                 command.CommandText = "SELECT * FROM Skeniranje ORDER BY AutoID ASC"
             Else
-                Command = cmd
+                command = cmd
             End If
 
-            Dim adapter As New SQLiteDataAdapter(Command)
+            Dim adapter As New SQLiteDataAdapter(command)
             Dim datast As New DataSet()
             adapter.Fill(datast, "Skeniranje")
             bindingsrc = New BindingSource()
@@ -204,13 +204,8 @@ Public Class Form5
             autoidtextbox.DataBindings.Add("Text", bindingsrc, "AutoID")
             brojskenatextbox.DataBindings.Add("Text", bindingsrc, "Broj_skena")
             pdftextbox.DataBindings.Add("Text", bindingsrc, "Pdf")
-            tip_dozvoletextbox.DataBindings.Add("Text", bindingsrc, "Tip_dozvole")
-            ispostavatextbox.DataBindings.Add("Text", bindingsrc, "Ispostava")
-            upravni_odjeltextbox.DataBindings.Add("Text", bindingsrc, "Upravni_odjel")
-            zupanijatextbox.DataBindings.Add("Text", bindingsrc, "Zupanija")
-            datum_aktatextbox.DataBindings.Add("Text", bindingsrc, "Datum_akta")
-            ostecena_stranicatextbox.DataBindings.Add("Text", bindingsrc, "Ostecena_stranica")
-            neodostajuca_stranicatextbox.DataBindings.Add("Text", bindingsrc, "Nedostajuca_stranica")
+            vrsta_povratnicetextbox.DataBindings.Add("Text", bindingsrc, "Vrsta_povratnice")
+            naziv_izmjeretextbox.DataBindings.Add("Text", bindingsrc, "Naziv_izmjere")
             kreirano_odtextbox.DataBindings.Add("Text", bindingsrc, "Kreirano_od")
             datum_kreiranjatextbox.DataBindings.Add("Text", bindingsrc, "Datum_kreiranja")
 
@@ -271,37 +266,32 @@ Public Class Form5
             sql = "SELECT * FROM Skeniranje "
             sql &= "WHERE Broj_skena LIKE @keyword2 "
             sql &= "OR Pdf LIKE @keyword2 "
-            sql &= "OR Tip_dozvole LIKE @keyword2 "
-            sql &= "OR Ispostava LIKE @keyword2 "
-            sql &= "OR Upravni_odjel LIKE @keyword2 "
-            sql &= "OR Zupanija LIKE @keyword2 "
-            sql &= "OR Datum_akta LIKE @keyword2 "
-            sql &= "OR Ostecena_stranica LIKE @keyword2 "
-            sql &= "OR Nedostajuca_stranica LIKE @keyword2 "
+            sql &= "OR Vrsta_povratnice LIKE @keyword2 "
+            sql &= "OR Naziv_izmjere LIKE @keyword2 "
             sql &= "OR Kreirano_od LIKE @keyword2 "
             sql &= "OR Datum_kreiranja LIKE @keyword2 "
             sql &= "ORDER BY AutoID ASC"
 
-            Command.CommandType = CommandType.Text
-            Command.CommandText = Sql
+            command.CommandType = CommandType.Text
+            command.CommandText = sql
 
-            Command.Parameters.Clear()
+            command.Parameters.Clear()
 
 
             Dim Keywordstring As String = String.Format("%{0}%", keywordtextbox.Text)
 
-            Command.Parameters.AddWithValue("@keyword1", keywordtextbox.Text)
-            Command.Parameters.AddWithValue("@keyword2", Keywordstring)
+            command.Parameters.AddWithValue("@keyword1", keywordtextbox.Text)
+            command.Parameters.AddWithValue("@keyword2", Keywordstring)
 
             ' MsgBox(Keywordstring)
 
 
-            UpdateDataBiding(Command)
+            UpdateDataBiding(command)
 
         Catch ex As Exception
 
             MessageBox.Show("Pogreška u pretraživanju: " & ex.Message.ToString(),
-                "GZS sken",
+                "GZS povratnice",
                 MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             connection.Close()
@@ -325,13 +315,8 @@ Public Class Form5
 
         command.Parameters.AddWithValue("Broj_skena", brojskenatextbox.Text.Trim())
         command.Parameters.AddWithValue("Pdf", pdftextbox.Text.Trim())
-        command.Parameters.AddWithValue("Tip_dozvole", tip_dozvoletextbox.Text.Trim())
-        command.Parameters.AddWithValue("Ispostava", ispostavatextbox.Text.Trim())
-        command.Parameters.AddWithValue("Upravni_odjel", upravni_odjeltextbox.Text.Trim())
-        command.Parameters.AddWithValue("Zupanija", zupanijatextbox.Text.Trim())
-        command.Parameters.AddWithValue("Datum_akta", datum_aktatextbox.Text.Trim())
-        command.Parameters.AddWithValue("Ostecena_stranica", ostecena_stranicatextbox.Text.Trim())
-        command.Parameters.AddWithValue("Nedostajuca_stranica", neodostajuca_stranicatextbox.Text.Trim())
+        command.Parameters.AddWithValue("Vrsta_povratnice", vrsta_povratnicetextbox.Text.Trim())
+        command.Parameters.AddWithValue("Naziv_izmjere", naziv_izmjeretextbox.Text.Trim())
         command.Parameters.AddWithValue("Kreirano_od", kreirano_odtextbox.Text.Trim())
         command.Parameters.AddWithValue("Datum_kreiranja", datum_kreiranjatextbox.Text.Trim())
 
@@ -355,17 +340,12 @@ Public Class Form5
 
         If String.IsNullOrEmpty(brojskenatextbox.Text.Trim()) Or
             String.IsNullOrEmpty(pdftextbox.Text.Trim()) Or
-                  String.IsNullOrEmpty(tip_dozvoletextbox.Text.Trim()) Or
-            String.IsNullOrEmpty(ispostavatextbox.Text.Trim()) Or
-            String.IsNullOrEmpty(upravni_odjeltextbox.Text.Trim()) Or
-            String.IsNullOrEmpty(zupanijatextbox.Text.Trim()) Or
-            String.IsNullOrEmpty(datum_aktatextbox.Text.Trim()) Or
-            String.IsNullOrEmpty(ostecena_stranicatextbox.Text.Trim()) Or
-            String.IsNullOrEmpty(neodostajuca_stranicatextbox.Text.Trim()) Or
+                  String.IsNullOrEmpty(vrsta_povratnicetextbox.Text.Trim()) Or
+            String.IsNullOrEmpty(naziv_izmjeretextbox.Text.Trim()) Or
             String.IsNullOrEmpty(kreirano_odtextbox.Text.Trim()) Or
             String.IsNullOrEmpty(datum_kreiranjatextbox.Text.Trim()) Then
 
-            MessageBox.Show("Popuni polja ili za prazna polja dodaj tekst NULL", "GZS sken", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Popuni polja ili za prazna polja dodaj tekst NULL", "GZS povratnice", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
             Exit Sub
         End If
@@ -380,7 +360,7 @@ Public Class Form5
 
                 If autoidtextbox.Text.Trim() = "" Or
                         String.IsNullOrEmpty(autoidtextbox.Text.Trim()) Then
-                    MessageBox.Show("Pritisni dugme  -Dodaj novi-  za dodavanje novih podataka!", "GZS sken",
+                    MessageBox.Show("Pritisni dugme  -Dodaj novi-  za dodavanje novih podataka!", "GZS povratnice",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return
                 End If
@@ -402,8 +382,8 @@ Public Class Form5
 
 
                 dbcommand = "UPDATE"
-                sql = "UPDATE Skeniranje SET Broj_skena = @Broj_skena, Pdf = @Pdf, Tip_dozvole = @Tip_dozvole, Ispostava = @Ispostava, Upravni_odjel = @Upravni_odjel, "
-                sql &= "Zupanija =  @Zupanija, Datum_akta = @Datum_akta, Ostecena_stranica = @Ostecena_stranica, Nedostajuca_stranica = @Nedostajuca_stranica, Kreirano_od = @Kreirano_od, Datum_kreiranja = @Datum_kreiranja  WHERE AutoID = @AutoID"
+                sql = "UPDATE Skeniranje SET Broj_skena = @Broj_skena, Pdf = @Pdf, Vrsta_povratnice = @Vrsta_povratnice, Naziv_izmjere = @Naziv_izmjere, "
+                sql &= "Kreirano_od = @Kreirano_od, Datum_kreiranja = @Datum_kreiranja  WHERE AutoID = @AutoID"
                 AddCmdParameters()
 
 
@@ -418,8 +398,8 @@ Public Class Form5
 
                 If result = DialogResult.Yes Then
                     dbcommand = "INSERT"
-                    sql = "INSERT INTO Skeniranje (Broj_skena, Pdf, Tip_dozvole, Ispostava, Upravni_odjel, Zupanija, Datum_akta, Ostecena_stranica, Nedostajuca_stranica, Kreirano_od, Datum_kreiranja) " &
-                        "VALUES (@Broj_skena, @Pdf, @Tip_dozvole, @Ispostava, @Upravni_odjel, @Zupanija, @Datum_akta, @Ostecena_stranica, @Nedostajuca_stranica, @Kreirano_od, @Datum_kreiranja)"
+                    sql = "INSERT INTO Skeniranje (Broj_skena, Pdf, Vrsta_povratnice, Naziv_izmjere, Kreirano_od, Datum_kreiranja) " &
+                        "VALUES (@Broj_skena, @Pdf, @Vrsta_povratnice, @Naziv_izmjere, @Kreirano_od, @Datum_kreiranja)"
 
 
                     AddCmdParameters()
@@ -436,7 +416,7 @@ Public Class Form5
             Dim execute As Integer = command.ExecuteNonQuery()
 
             If execute = -1 Then
-                MessageBox.Show("Podaci nisu spremeljeni u SQLite bazu - Pogreška u spremnanju..", "GZS sken",
+                MessageBox.Show("Podaci nisu spremeljeni u SQLite bazu - Pogreška u spremnanju..", "GZS povratnice",
                 MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Else
                 MessageBox.Show("Podaci uspješno dodani u SQLite bazu",
@@ -475,8 +455,11 @@ Public Class Form5
                     'Do any thing
                     Dim startpdf As String
                     Dim row1 As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-                    startpdf = putanja_pdf_a + "\" + row1
+                    startpdf = putanja_pdf + "\" + row1
 
+
+                    MsgBox(row1)
+                    MsgBox(putanja_pdf)
 
                     If System.IO.File.Exists(startpdf) Then
 
@@ -586,24 +569,6 @@ Public Class Form5
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        If CheckBox1.Checked = True Then
-            DataGridView1.Columns("Kreirano_od").Visible = False
-            DataGridView1.Columns("Ostecena_stranica").Visible = False
-            DataGridView1.Columns("Nedostajuca_stranica").Visible = False
-            UpdateDataBiding()
-        ElseIf CheckBox1.Checked = False Then
-            DataGridView1.Columns("Kreirano_od").Visible = True
-            DataGridView1.Columns("Ostecena_stranica").Visible = True
-            DataGridView1.Columns("Nedostajuca_stranica").Visible = True
-            UpdateDataBiding()
-
-
-        End If
-
-
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 

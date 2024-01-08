@@ -165,12 +165,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property tip_odjela() As String
+        Public Property lokacija_izmjere() As String
             Get
-                Return CType(Me("tip_odjela"),String)
+                Return CType(Me("lokacija_izmjere"),String)
             End Get
             Set
-                Me("tip_odjela") = value
+                Me("lokacija_izmjere") = value
             End Set
         End Property
         

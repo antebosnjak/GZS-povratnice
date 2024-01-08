@@ -29,7 +29,7 @@
     <Setting Name="putanja_slika" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="tip_odjela" Type="System.String" Scope="User">
+    <Setting Name="lokacija_izmjere" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="putanja_tiff" Type="System.String" Scope="User">

@@ -80,10 +80,10 @@ Public Class Form2
 
             Form1.skeniraj_buton.Enabled = False
             Form1.sken_check.Enabled = False
-            Form1.potpis_check.Enabled = False
+
             Form1.metapodaci_check.Enabled = False
 
-            Form1.digitalni_potpis_buton.Enabled = False
+
             Form1.metapodaci_buton.Enabled = False
             Form1.novi_sken_buton.Enabled = False
             Form1.zavrsi_dan_buton.Enabled = False
@@ -95,10 +95,10 @@ Public Class Form2
 
             Form1.skeniraj_buton.Enabled = False
             Form1.sken_check.Enabled = False
-            Form1.potpis_check.Enabled = False
+
             Form1.metapodaci_check.Enabled = False
 
-            Form1.digitalni_potpis_buton.Enabled = False
+
             Form1.metapodaci_buton.Enabled = False
             Form1.novi_sken_buton.Enabled = False
             Form1.zavrsi_dan_buton.Enabled = False
@@ -189,8 +189,7 @@ Public Class Form2
 
                 Form1.zelena_kvacica_s.Visible = False
                 Form1.zelena_kvacica_s.Refresh()
-                Form1.zelena_kvacica_d.Visible = False
-                Form1.zelena_kvacica_d.Refresh()
+
                 Form1.zelena_kvacica_m.Visible = False
                 Form1.zelena_kvacica_m.Refresh()
                 Form1.zelena_kvacica_v.Visible = False
@@ -200,7 +199,7 @@ Public Class Form2
 
 
 
-                Form1.digitalni_potpis_buton.Enabled = False
+
                 Form1.metapodaci_buton.Enabled = False
                 Form1.novi_sken_buton.Enabled = False
                 Form1.skeniraj_buton.Enabled = False
@@ -214,7 +213,6 @@ Public Class Form2
                 Form1.sken_check.Enabled = False
                 Form1.metapodaci_check.Enabled = False
                 Form1.vrsta_akta_checkbox.Enabled = False
-                Form1.potpis_check.Enabled = False
 
 
 
